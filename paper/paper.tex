@@ -51,7 +51,7 @@
 	\setcounter{footnote}{1}
 	\title{基于跳过程与统计学习的普适排行榜类产品度量模型}
 	\author{程晨\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. Email address:
-			\href{mailto:moriartycc@pku.edu.cn}{moriartycc@pku.edu.cn}, ID: 1500010714} \quad 陈子恒\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. }, \quad 郝天泽\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. }}
+			\href{mailto:moriartycc@pku.edu.cn}{moriartycc@pku.edu.cn}, ID: 1500010714}， \quad 陈子恒\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. }， \quad 郝天泽\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. }}
 	\date{}
 	\maketitle
 	\abstract{
@@ -107,7 +107,7 @@
 		\includegraphics[width = 12cm]{modelA_fig_1.png}
 		\caption{Steam探索队列}\label{modelA_fig_1}
 	\end{figure}
-	（请在这里添加一段对于Steam探索队列的描述） \\
+	Steam探索队列是Steam游戏平台为用户推荐产品的一种方式。该队列通过分析用户的喜好设定、浏览记录以及购买记录等信息为用户推荐一个产品队列（可视为一种产品排行榜）。当用户浏览此队列时，需要依次浏览队列中每一个产品的相关信息并进行是否感兴趣的选择（即接受或放弃的用户决策）。当我们假定现在客户有购买一个产品的需求，其浏览Steam探索队列的方式及可抽象为这里的无跳过的顺序选择模型。而往往这样的队列足够长，且是通过分析用户喜好得来，所以不妨假设用户可以从这一队列中挑选出一个其接受的产品，即前面谈到的如果到了排行榜队列底端就必须选择最后一个产品的假设。 \\
 	
 	具体来说，我们给出无跳过的顺序选择模型的定义。
 	\begin{defn}\textbf{（无跳过的顺序选择模型）}该模型是一个建立在状态空间为$\mathcal{P} \cup \left\{A\right\}$上的跳过程。其中$A$表示接受状态。其中状态$i$处的指数闹钟参数为$\lambda_i$，且其嵌入链的转移概率为
@@ -132,7 +132,7 @@
 		\includegraphics[width = 12cm]{modelA_fig_2.pdf}
 		\caption{无跳过的顺序选择模型结构}\label{modelA_fig_2}
 	\end{figure}
-	（请在这里添加一段对于该模型的感性描述）
+	直观上看，此模型实际上就是我们上面文字描述的严格定义。$A$表示接受状态，即用户决定接受某一产品，$a_{p_i}$表示决定接受产品$p_i$的概率，$r_{p_i} = 1 - a_{p_i}$表示拒绝产品$p_i$从而继续浏览$p_{i+1}$的概率，于是$\lambda_{p_i} a_{p_i}$即表示决定接受产品$p_i$的速率，$\lambda_{p_i} r_{p_i} = \lambda_{p_i} (1 - a_{p_i})$即表示拒绝产品$p_i$从而继续浏览$p_{i+1}$的速率。从而构建出了此跳过程的转移速率矩阵。
 	\subsection{度量模型}
 	在这样的模型中，我们有理由设置用户找到其接受的产品的时间$\tau_E$为衡量产品优劣的标准。时间越短，那么产品就越有效。而$\tau_E$在对应的随机过程中即为到达状态$E$的首达时，其分布函数可以表示为
 	$$
@@ -150,7 +150,7 @@
 	\mathrm{Score}_{\mathfrak{A}\left(\bm{\lambda}, \bm{a}, \omega\right)}(x, \alpha) =  \sum_{k=1}^N \left(\frac{\prod\limits_{j=0}^{k-1}a_{p_j}}{\lambda_{p_i}} x^k\right)^\alpha, \quad x \in [1, \infty), \alpha \in [1,2]
 	\end{equation}
 	
-	（请在这里添加一段对于此衡量函数的定性描述，以及合理性分析） \\
+	其中的$x \in [1, \infty)$可以理解为某种“不满值”，即随着浏览队列的加长，用户的耐心渐渐减少，每浏览队列中越靠后的一个商品用户增加的不满值越大，因而其属于$[1, \infty)$。$\alpha \in [1,2]$则是综合考虑用户所需时间的期望与方差。对于一个优秀的排行方式，其应该尽量使得用户平均等待时间较少，所积累不满较少的同时保证用户“一致地”满意。于是我们得到了这里的衡量函数$\mathrm{Score}_{\mathfrak{A}\left(\bm{\lambda}, \bm{a}, \omega\right)}(x, \alpha)$。注意到$\alpha = 1, x = 1$时衡量函数就等于等待时间的期望，而$\alpha = 2, x = 1$时衡量函数就等于等待时间的方差，而这里“不满值”$x$也可以理解成一种“心理时间”，即在较长时间的等待后，对用户而言等待时间似乎被加长，这说明了衡量函数的合理性。 \\
 	
 	当然，由于参数$\bm{\lambda}, \bm{a}$是隐含的，我们需要通过统计推断的方法得到它们，即通过数据得到推断的参数$\bm{\hat{\lambda}}, \bm{\hat{a}}$，然后得到我们的衡量函数
 	$$
@@ -241,14 +241,14 @@
 	在这里，我们用一种新定义的\textbf{有效体验时间}$\tau_T$来衡量排行榜的好坏。具体来说$\tau_T$是\textbf{所有做出了赞成或反对的阅读时间的总和}。对于豆瓣、知乎这种阅读体验累的产品来说，用户能够对阅读的产品更长时间的保持兴趣则产品设计的越好，而在阅读完之后做出了赞成或反对的选择就表示用户对于这个条目很感兴趣，这段时间可以被看作是有效的。具体来说，我们可以计算出$\tau_T$的期望和方差为
 	\begin{equation}
 	\begin{aligned}
-	\varphi_{p_j} & = t_{p_j} + n_{p_j} - t_{p_j}n_{p_j} \\
-	\mathbb{E} \tau_T & = \sum_{k=1}^N \frac{(1-\varphi_{p_j})\prod\limits_{j=0}^{k-1}a_{p_j}}{\lambda_{p_i}} \\
-	\mathrm{Var} \tau_T & = \sum_{k=1}^N (1-\varphi_{p_j}^2)\left(\frac{\prod\limits_{j=0}^{k-1}a_{p_j}}{\lambda_{p_i}}\right)^2
+	\varphi_{p_j} & = s_{p_j} + n_{p_j} - s_{p_j}n_{p_j} \\
+	\mathbb{E} \tau_T & = \sum_{k=1}^N \frac{(1-\varphi_{p_j})\prod\limits_{j=0}^{k-1}(1-t_{p_j})}{\lambda_{p_i}} \\
+	\mathrm{Var} \tau_T & = \sum_{k=1}^N (1-\varphi_{p_j}^2)\left(\frac{\prod\limits_{j=0}^{k-1}(1-t_{p_j})}{\lambda_{p_i}}\right)^2
 	\end{aligned}
 	\end{equation}
 	证明请参见附录。为了综合考虑期望和方差，我们用参数$\alpha$进行连续过渡；同样地，我们也使用指标$x$表示用户对于后面才出现的感兴趣的话题不满。综上，我们将衡量函数定义为
 	\begin{equation}
-	\mathrm{Score}_{\mathfrak{C}\left(\bm{\lambda}, \bm{t}, \bm{s}, \bm{u}, \bm{d}, \bm{n},\omega\right)} = \sum_{k=1}^N (1-\varphi_{p_j})(1-\varphi_{p_j}+\alpha s_{p_j})\left(\frac{\prod\limits_{j=0}^{k-1}a_{p_j}}{\lambda_{p_i}} x^k\right)^\alpha, \quad x \in (0, 1], \alpha \in [1, 2]
+	\mathrm{Score}_{\mathfrak{C}\left(\bm{\lambda}, \bm{t}, \bm{s}, \bm{u}, \bm{d}, \bm{n},\omega\right)} = \sum_{k=1}^N (1-\varphi_{p_j})(1-\varphi_{p_j}+\alpha \varphi_{p_j})\left(\frac{\prod\limits_{j=0}^{k-1}(1-t_{p_j})}{\lambda_{p_i}} x^k\right)^\alpha, \quad x \in (0, 1], \alpha \in [1, 2]
 	\end{equation}
 	相应的，参数$\bm{\lambda}, \bm{t}, \bm{s}, \bm{u}, \bm{d}, \bm{n}$均是隐含的，我们需要从数据中学习出这些参数的推断值$\bm{\hat{\lambda}}, \bm{\hat{t}}, \bm{\hat{s}}, \bm{\hat{u}}, \bm{\hat{d}}, \bm{\hat{n}}$，然后再代入上式进行计算。依然使用似然函数的办法和优化策略解决这个问题。 \\
 	
