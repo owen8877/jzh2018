@@ -260,6 +260,17 @@
 	\subsection{两种著名的排行榜产品}
 	\subsection{不同情形下的实验比较}
 	\section{由此启发得到的基于优化的排行榜算法}
+	尽管不是题目所要求的，但我们很容易注意到通过得到的费用函数，我们可以得到一个由此启发的排行榜算法，即
+	\begin{equation}
+	\hat{\omega} = \argmax_{\omega \in \Omega_P} \mathrm{Score}_{\mathfrak{C}\left(\bm{\hat{\lambda}}, \bm{\hat{t}}, \bm{\hat{s}}, \bm{\hat{u}}, \bm{\hat{d}}, \bm{\hat{n}},\omega\right)}
+	\end{equation}
+	其中推断得到的参数$\bm{\hat{\lambda}}, \bm{\hat{t}}, \bm{\hat{s}}, \bm{\hat{u}}, \bm{\hat{d}}, \bm{\hat{n}}$是实时计算的。 \\
+	
+	注意到这样一个优化问题是非凸的组合优化问题，且搜索空间大小为$|\Omega_P| = N! \sim \sqrt{2\pi N} \left(N/e\right)^N$，不可能遍历搜索。我们采用贪心的策略，从一个随机的排列出发，遍历两两交换下所能使函数值提升最大的$\omega$并迭代更新，具体来说迭代法为
+	$$
+	\omega_{n+1} =  \argmax_{|\omega - \omega_n| = 1} \mathrm{Score}_{\mathfrak{C}\left(\bm{\hat{\lambda}}, \bm{\hat{t}}, \bm{\hat{s}}, \bm{\hat{u}}, \bm{\hat{d}}, \bm{\hat{n}},\omega\right)}
+	$$
+	其中$|\omega_1 -\omega_2|$表示至少通过多少步两两交换能够将$\omega_1$变为$\omega_2$，这显然是$\Omega_P$上的一个距离。下面我们将此排行榜算法与Hacker News和Reddit排行榜算法进行比较，得到的数值实验结果如下。
 	\section{总结}
 	\bibliography{bib}
 	
