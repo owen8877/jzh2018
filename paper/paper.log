@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2017.5.13)  20 MAY 2018 20:53
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2017.5.13)  20 MAY 2018 22:48
 entering extended mode
 **paper.tex
 (E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.tex
@@ -754,6 +754,9 @@ Package ifvtex Info: VTeX not detected.
 \Gm@dimlist=\toks35
 
 (C:\CTEX\MiKTeX\tex\xelatex\xetexconfig\geometry.cfg))
+(C:\CTEX\MiKTeX\tex\latex\multirow\multirow.sty
+\bigstrutjot=\dimen179
+)
 (C:\CTEX\MiKTeX\tex\latex\hyperref\hyperref.sty
 Package: hyperref 2012/02/06 v6.82o Hypertext links for LaTeX
 
@@ -787,7 +790,7 @@ Package: atbegshi 2011/01/30 v1.15 At begin shipout hook (HO)
 Package: refcount 2010/12/01 v3.2 Data extraction from references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options of hyperref/bookmark (HO)
 )
-\@linkdim=\dimen179
+\@linkdim=\dimen180
 \Hy@linkcounter=\count282
 \Hy@pagecounter=\count283
 
@@ -815,8 +818,8 @@ Package: url 2004/03/15  ver 3.1  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4637.
 \Fld@menulength=\count286
-\Field@Width=\dimen180
-\Fld@charsize=\dimen181
+\Field@Width=\dimen181
+\Fld@charsize=\dimen182
 Package hyperref Info: Hyper figures OFF on input line 5757.
 Package hyperref Info: Link nesting OFF on input line 5762.
 Package hyperref Info: Hyper index ON on input line 5765.
@@ -864,14 +867,14 @@ tly
 \lst@gtempboxa=\box43
 \lst@token=\toks36
 \lst@length=\count295
-\lst@currlwidth=\dimen182
+\lst@currlwidth=\dimen183
 \lst@column=\count296
 \lst@pos=\count297
-\lst@lostspace=\dimen183
-\lst@width=\dimen184
+\lst@lostspace=\dimen184
+\lst@width=\dimen185
 \lst@newlines=\count298
 \lst@lineno=\count299
-\lst@maxwidth=\dimen185
+\lst@maxwidth=\dimen186
 
 (C:\CTEX\MiKTeX\tex\latex\listings\lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
@@ -907,33 +910,33 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 \c@exmp=\count305
 
 (E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 50.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 52.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 52.
 
 (C:\CTEX\MiKTeX\tex\latex\tipa\t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
 .................................................
 . fontspec info: "setup-math"
 . 
@@ -941,60 +944,60 @@ LaTeX Font Info:    ... okay on input line 50.
 .................................................
 \symlegacymaths=\mathgroup10
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 50.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 50.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 50.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 50.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 50.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 50.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 50.
-LaTeX Font Info:    Redeclaring math accent \check on input line 50.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 50.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 50.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 50.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 50.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 50.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 52.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 52.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 52.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 52.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 52.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 52.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 52.
+LaTeX Font Info:    Redeclaring math accent \check on input line 52.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 52.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 52.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 52.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 52.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 52.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 50.
+(Font)              `operators' in the math version `normal' on input line 52.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> EU1/lmr/m/n on input line 50.
+(Font)                  OT1/cmr/m/n --> EU1/lmr/m/n on input line 52.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 50.
+(Font)              `operators' in the math version `bold' on input line 52.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> EU1/lmr/m/n on input line 50.
+(Font)                  OT1/cmr/bx/n --> EU1/lmr/m/n on input line 52.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  EU1/lmr/m/n --> EU1/lmr/m/n on input line 50.
+(Font)                  EU1/lmr/m/n --> EU1/lmr/m/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  EU1/lmr/m/n --> EU1/lmr/m/n on input line 50.
+(Font)                  EU1/lmr/m/n --> EU1/lmr/m/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> EU1/lmr/m/it on input line 50.
+(Font)                  OT1/cmr/m/it --> EU1/lmr/m/it on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> EU1/lmr/bx/n on input line 50.
+(Font)                  OT1/cmr/bx/n --> EU1/lmr/bx/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 50.
+(Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 50.
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 52.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  EU1/lmr/m/n --> EU1/lmr/bx/n on input line 50.
+(Font)                  EU1/lmr/m/n --> EU1/lmr/bx/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  EU1/lmr/m/n --> EU1/lmr/bx/n on input line 50.
+(Font)                  EU1/lmr/m/n --> EU1/lmr/bx/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> EU1/lmr/bx/it on input line 50.
+(Font)                  OT1/cmr/bx/it --> EU1/lmr/bx/it on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 50.
+(Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 52.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 50.
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 52.
 
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1030,7 +1033,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box45
-Package hyperref Info: Link coloring ON on input line 50.
+Package hyperref Info: Link coloring ON on input line 52.
 (C:\CTEX\MiKTeX\tex\latex\hyperref\nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
@@ -1039,9 +1042,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count306
 )
-LaTeX Info: Redefining \ref on input line 50.
-LaTeX Info: Redefining \pageref on input line 50.
-LaTeX Info: Redefining \nameref on input line 50.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
 
 (E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.out)
 (E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.out)
@@ -1109,7 +1112,7 @@ Requested font "cmex8" at 8.0pt
  -> cmex8
 Requested font "cmex7" at 6.0pt
  -> cmex7
-LaTeX Font Info:    Try loading font information for U+msa on input line 57.
+LaTeX Font Info:    Try loading font information for U+msa on input line 59.
 
 (C:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
@@ -1120,7 +1123,7 @@ Requested font "msam10" at 8.0pt
  -> msam10
 Requested font "msam7" at 6.0pt
  -> msam7
-LaTeX Font Info:    Try loading font information for U+msb on input line 57.
+LaTeX Font Info:    Try loading font information for U+msb on input line 59.
 
 (C:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -1149,7 +1152,7 @@ Requested font "cmbsy10" at 8.0pt
  -> cmbsy10
 Requested font "cmbsy7" at 6.0pt
  -> cmbsy7
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 57.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 59.
 
 (C:\CTEX\MiKTeX\tex\latex\jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1216,7 +1219,7 @@ Requested font "cmbsy5" at 5.0pt
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <7.53> not available
-(Font)              size <8> substituted on input line 57.
+(Font)              size <8> substituted on input line 59.
 
 Requested font "rsfs5" at 5.0pt
  -> rsfs5
@@ -1317,7 +1320,7 @@ Requested font "SimSun/ICU" at 10.54pt
 
 
 LaTeX Font Warning: Font shape `EU1/SimSun(0)/m/sl' undefined
-(Font)              using `EU1/SimSun(0)/m/n' instead on input line 63.
+(Font)              using `EU1/SimSun(0)/m/n' instead on input line 65.
 
 Requested font "SimSun/ICU:script=latn;language=DFLT;mapping=tex-text;" at 10.5
 4pt
@@ -1337,7 +1340,7 @@ Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;" at 10.5
 4pt
  -> C:/Windows/Fonts/simhei.ttf
 
-Overfull \hbox (14.37758pt too wide) in paragraph at lines 98--99
+Overfull \hbox (14.37758pt too wide) in paragraph at lines 100--101
 []\xeCJK@rm/m/n/9.03 用 户 群 体 对 于 接 受、| 放 弃、| 跳 过、
 | 结 束、| 支 持、| 反 对 和 不 表 态 分 别 有 基 于 产 品 �
 �� 固 有 概 率 $\OML/cmm/m/it/9.03 a[]; r[]; s[]; t[]; u[]; d[]; n[]$\xeCJK
@@ -1368,12 +1371,12 @@ File: modelA_fig_1.png Graphic file (type QTm)
 . This font family consists of the following shapes:
 .................................................
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--111
+Underfull \hbox (badness 10000) in paragraph at lines 106--113
 
  []
 
 [3]
-LaTeX Font Info:    Try loading font information for U+euf on input line 128.
+LaTeX Font Info:    Try loading font information for U+euf on input line 130.
  (C:\CTEX\MiKTeX\tex\latex\amsfonts\ueuf.fd
 File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
 )
@@ -1389,48 +1392,116 @@ File: modelA_fig_2.pdf Graphic file (type QTm)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
 [5]
+Requested font "[lmroman6-regular]:mapping=tex-text" at 5.52pt
+ -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman6-regular.otf
+Requested font "cmmi5" at 5.52pt
+ -> cmmi5
+Requested font "cmsy5" at 5.52pt
+ -> cmsy5
+Requested font "cmex7" at 5.52pt
+ -> cmex7
+Requested font "msam5" at 5.52pt
+ -> msam5
+Requested font "msbm5" at 5.52pt
+ -> msbm5
+Requested font "eufm5" at 5.52pt
+ -> eufm5
+Requested font "cmbx5" at 5.52pt
+ -> cmbx5
+Requested font "cmmib5" at 5.52pt
+ -> cmmib5
+Requested font "cmbsy5" at 5.52pt
+ -> cmbsy5
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52> not available
+(Font)              size <6> substituted on input line 179.
+
+Requested font "cmr5" at 5.52pt
+ -> cmr5
+Requested font "[lmroman6-bold]:mapping=tex-text" at 5.52pt
+ -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman6-bold.otf
+File: ../model/steam/pic/random-decrease-time-compare-M-10000.eps Graphic file 
+(type eps)
+<../model/steam/pic/random-decrease-time-compare-M-10000.eps>
+Requested font "[lmroman7-regular]:mapping=tex-text" at 7.0pt
+ -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman7-regular.otf
+Requested font "cmmi10" at 10.54pt
+ -> cmmi10
+Requested font "cmsy10" at 10.54pt
+ -> cmsy10
+Requested font "cmex10" at 10.54pt
+ -> cmex10
+Requested font "cmex7" at 7.0pt
+ -> cmex7
+Requested font "msam10" at 10.54pt
+ -> msam10
+Requested font "msam7" at 7.0pt
+ -> msam7
+Requested font "msbm10" at 10.54pt
+ -> msbm10
+Requested font "msbm7" at 7.0pt
+ -> msbm7
+Requested font "eufm10" at 10.54pt
+ -> eufm10
+Requested font "eufm7" at 7.0pt
+ -> eufm7
+Requested font "cmbx10" at 10.54pt
+ -> cmbx10
+Requested font "cmbx7" at 7.0pt
+ -> cmbx7
+Requested font "cmmib10" at 10.54pt
+ -> cmmib10
+Requested font "cmmib7" at 7.0pt
+ -> cmmib7
+Requested font "cmbsy10" at 10.54pt
+ -> cmbsy10
+Requested font "cmbsy7" at 7.0pt
+ -> cmbsy7
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.54> not available
+(Font)              size <10.95> substituted on input line 205.
+
+Requested font "rsfs10" at 10.95pt
+ -> rsfs10
+Requested font "rsfs7" at 7.0pt
+ -> rsfs7
+Requested font "cmr10" at 10.54pt
+ -> cmr10
+[6]
+File: ../model/steam/pic/random-decrease-score-compare-M-10000.eps Graphic file
+ (type eps)
+ <../model/steam/pic/random-decrease-score-compare-M-10000.eps>
 File: modelB_fig_1.jpg Graphic file (type QTm)
- <use  "modelB_fig_1.jpg" >
+
+<use  "modelB_fig_1.jpg" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[7]
 File: modelB_fig_2.pdf Graphic file (type QTm)
-<use  "modelB_fig_2.pdf" >
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[6] [7]
+ <use  "modelB_fig_2.pdf" > [8] [9]
 File: modelC_fig_2.pdf Graphic file (type QTm)
- <use  "modelC_fig_2.pdf" >
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 252--254
+ <use  "modelC_fig_2.pdf" > [10]
+Underfull \hbox (badness 10000) in paragraph at lines 297--299
 
  []
 
-
-Overfull \hbox (23.34598pt too wide) in paragraph at lines 255--256
-[]\xeCJK@rm/m/n/9.03 注 意 到，| 与 上 面 的 情 况 不 同，| 我 �
-� 的 这 个 衡 量 函 数 实 际 上 是 在 测 量 用 户 的 \xeCJK@rm
-/bx/n/9.03 有 效 体 验 时 间\xeCJK@rm/m/n/9.03 ，| 因 此 $[][]$
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 266--268
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 311--313
 
  []
 
-(E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.bbl) [10]
-Requested font "[lmroman9-italic]:mapping=tex-text" at 9.03pt
- -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman9-italic.otf
-Requested font "[lmroman10-bolditalic]:mapping=tex-text" at 9.03pt
+(E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.bbl) [12]
+Requested font "[lmroman10-italic]:mapping=tex-text" at 10.54pt
+ -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman10-italic.otf
+Requested font "[lmroman10-bolditalic]:mapping=tex-text" at 10.54pt
  -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman10-bolditalic.otf
 .................................................
 . fontspec info: "defining-font"
@@ -1443,7 +1514,7 @@ Requested font "[lmroman10-bolditalic]:mapping=tex-text" at 9.03pt
 
 
 LaTeX Font Warning: Font shape `EU1/SimSun(0)/bx/it' undefined
-(Font)              using `EU1/SimSun(0)/bx/n' instead on input line 280.
+(Font)              using `EU1/SimSun(0)/bx/n' instead on input line 325.
 
 .................................................
 . fontspec info: "defining-font"
@@ -1454,31 +1525,31 @@ LaTeX Font Warning: Font shape `EU1/SimSun(0)/bx/it' undefined
 . This font family consists of the following shapes:
 .................................................
 Requested font "[SIMKAI.TTF]/ICU:script=latn;language=DFLT;mapping=tex-text;" a
-t 9.03pt
+t 10.54pt
  -> C:/WINDOWS/Fonts/SIMKAI.TTF
-[11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 336.
- [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 336.
+[13]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 381.
+ [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 381.
  (E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 336.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 336.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 381.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 381.
 
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.47pt have occurred.
+(Font)              up to 0.48pt have occurred.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 23631 strings out of 430478
- 437523 string characters out of 3191502
- 495064 words of memory out of 3000000
- 26364 multiletter control sequences out of 15000+200000
- 19527 words of font info for 116 fonts, out of 3000000 for 9000
+ 23696 strings out of 430478
+ 438740 string characters out of 3191502
+ 495445 words of memory out of 3000000
+ 26415 multiletter control sequences out of 15000+200000
+ 27075 words of font info for 148 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,11n,64p,817b,485s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,13n,64p,817b,445s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on paper.pdf (12 pages).
+Output written on paper.pdf (14 pages).

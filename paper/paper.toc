@@ -8,18 +8,18 @@
 \contentsline {subsection}{\numberline {3.2}度量模型}{5}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}统计推断 \& 优化算法}{6}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}实验结果}{6}{subsection.3.4}
-\contentsline {section}{\numberline {4}带跳过的顺序选择模型——美团、饿了吗外卖}{6}{section.4}
-\contentsline {subsection}{\numberline {4.1}模型修正 \& 符号约定}{6}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}度量模型 \& 统计推断 \& 优化算法}{7}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}实验结果}{8}{subsection.4.3}
-\contentsline {section}{\numberline {5}带跳过的投票模型——豆瓣、知乎推荐}{8}{section.5}
-\contentsline {subsection}{\numberline {5.1}模型修正 \& 符号约定}{8}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}度量模型 \& 统计推断 \& 优化算法}{8}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}实验结果}{9}{subsection.5.3}
-\contentsline {section}{\numberline {6}实时计算}{9}{section.6}
-\contentsline {section}{\numberline {7}实际产品评价}{10}{section.7}
-\contentsline {subsection}{\numberline {7.1}两种著名的排行榜产品}{10}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}不同情形下的实验比较}{10}{subsection.7.2}
-\contentsline {section}{\numberline {8}由此启发得到的基于优化的排行榜算法}{10}{section.8}
-\contentsline {section}{\numberline {9}总结}{10}{section.9}
-\contentsline {section}{\numberline {A}定理的证明}{11}{appendix.A}
+\contentsline {section}{\numberline {4}带跳过的顺序选择模型——美团、饿了吗外卖}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}模型修正 \& 符号约定}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}度量模型 \& 统计推断 \& 优化算法}{9}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}实验结果}{9}{subsection.4.3}
+\contentsline {section}{\numberline {5}带跳过的投票模型——豆瓣、知乎推荐}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}模型修正 \& 符号约定}{9}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}度量模型 \& 统计推断 \& 优化算法}{10}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}实验结果}{11}{subsection.5.3}
+\contentsline {section}{\numberline {6}实时计算}{11}{section.6}
+\contentsline {section}{\numberline {7}实际产品评价}{12}{section.7}
+\contentsline {subsection}{\numberline {7.1}两种著名的排行榜产品}{12}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}不同情形下的实验比较}{12}{subsection.7.2}
+\contentsline {section}{\numberline {8}由此启发得到的基于优化的排行榜算法}{12}{section.8}
+\contentsline {section}{\numberline {9}总结}{12}{section.9}
+\contentsline {section}{\numberline {A}定理的证明}{13}{appendix.A}
