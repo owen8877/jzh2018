@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2017.5.13)  20 MAY 2018 19:27
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2017.5.13)  20 MAY 2018 20:05
 entering extended mode
 **paper.tex
 (E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.tex
@@ -1367,13 +1367,14 @@ File: modelA_fig_1.png Graphic file (type QTm)
 . 
 . This font family consists of the following shapes:
 .................................................
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--111
 
  []
 
+[3]
 LaTeX Font Info:    Try loading font information for U+euf on input line 128.
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\ueuf.fd
+ (C:\CTEX\MiKTeX\tex\latex\amsfonts\ueuf.fd
 File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
 )
 Requested font "eufm10" at 9.03pt
@@ -1383,19 +1384,33 @@ Requested font "eufm7" at 6.0pt
 Requested font "eufm5" at 5.0pt
  -> eufm5
 File: modelA_fig_2.pdf Graphic file (type QTm)
- <use  "modelA_fig_2.pdf" > [4]
+ <use  "modelA_fig_2.pdf" >
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 153--154
 
  []
 
 [5]
 File: modelB_fig_1.jpg Graphic file (type QTm)
- <use  "modelB_fig_1.jpg" > [6]
-File: modelB_fig_2.pdf Graphic file (type QTm)
- <use  "modelB_fig_2.pdf" > [7]
-File: modelC_fig_2.pdf Graphic file (type QTm)
+ <use  "modelB_fig_1.jpg" >
 
-<use  "modelC_fig_2.pdf" > [8]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: modelB_fig_2.pdf Graphic file (type QTm)
+<use  "modelB_fig_2.pdf" >
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6] [7]
+File: modelC_fig_2.pdf Graphic file (type QTm)
+ <use  "modelC_fig_2.pdf" >
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 252--254
 
  []
@@ -1407,14 +1422,42 @@ Overfull \hbox (23.34598pt too wide) in paragraph at lines 255--256
 /bx/n/9.03 有 效 体 验 时 间\xeCJK@rm/m/n/9.03 ，| 因 此 $[][]$
  []
 
-(E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 265.
- [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 265.
+(E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.bbl) [9] [10]
+Requested font "[lmroman9-italic]:mapping=tex-text" at 9.03pt
+ -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman9-italic.otf
+Requested font "[lmroman10-bolditalic]:mapping=tex-text" at 9.03pt
+ -> C:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman10-bolditalic.otf
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [Ligatures=TeX,BoldFont={SimHei},ItalicFont={[SIMKAI.TTF]}].
+. 
+. This font family consists of the following shapes:
+.................................................
 
-(E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 265.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 265.
+
+LaTeX Font Warning: Font shape `EU1/SimSun(0)/bx/it' undefined
+(Font)              using `EU1/SimSun(0)/bx/n' instead on input line 269.
+
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [Ligatures=TeX,BoldFont={SimHei},ItalicFont={[SIMKAI.TTF]}].
+. 
+. This font family consists of the following shapes:
+.................................................
+Requested font "[SIMKAI.TTF]/ICU:script=latn;language=DFLT;mapping=tex-text;" a
+t 9.03pt
+ -> C:/WINDOWS/Fonts/SIMKAI.TTF
+[11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 325.
+ [12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 325.
+ (E:\Contest\江泽涵数学建模2018\jzh2018\paper\paper.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 325.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 325.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1425,12 +1468,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 23590 strings out of 430478
- 436604 string characters out of 3191502
- 488878 words of memory out of 3000000
- 26328 multiletter control sequences out of 15000+200000
- 19503 words of font info for 113 fonts, out of 3000000 for 9000
+ 23631 strings out of 430478
+ 437523 string characters out of 3191502
+ 495064 words of memory out of 3000000
+ 26364 multiletter control sequences out of 15000+200000
+ 19527 words of font info for 116 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,11n,64p,817b,372s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,11n,64p,817b,487s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on paper.pdf (9 pages).
+Output written on paper.pdf (12 pages).

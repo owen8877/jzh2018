@@ -102,7 +102,7 @@
 	\section{无跳过的顺序选择模型——Steam探索队列}
 	\subsection{模型概述 \& 符号约定}
 	我们首先考虑一种最为简单，受约束较多的排行榜类推荐模型——\textbf{无跳过的顺序选择模型}。\textbf{在这个模型中，每一个用户必须依照排行榜的顺序依次阅读有关每一个产品的信息，不能跳过，且必须作出一个选择（我们假设如果到了排行榜队列底端就必须选择最后一个产品）}。这样的模型是基于著名的游戏品台Steam中的探索队列(\ref{modelA_fig_1})功能简化得到的。
-	\begin{figure}[H] 
+	\begin{figure}[h!] 
 		\centering
 		\includegraphics[width = 12cm]{modelA_fig_1.png}
 		\caption{Steam探索队列}\label{modelA_fig_1}
@@ -127,7 +127,7 @@
 	\end{equation}
 	在图（$\ref{modelA_fig_2}$）中展示了具体的模型。该模型可表述为$\mathfrak{A}\left(\bm{\lambda}, \bm{a}, \omega\right)$。
 	\end{defn}
-	\begin{figure}[H] 
+	\begin{figure}[h!] 
 		\centering
 		\includegraphics[width = 12cm]{modelA_fig_2.pdf}
 		\caption{无跳过的顺序选择模型结构}\label{modelA_fig_2}
@@ -139,15 +139,15 @@
 	F_{\tau_E}(t) = e_{p_1}^T \exp(\bm{Q}t)e_{E}, \quad e_i \in \mathbb{R}^{N \times 1}, i \in \mathcal{P}
 	$$
 	其方差和期望分别为（约定$a_{p_0} = 1$）
-	\begin{equation}
+	\begin{equation} \label{EQ_A}
 	\begin{aligned}
-	\mathbb{E} \tau_E & = \sum_{k=1}^N \frac{\prod\limits_{j=0}^{k-1}a_{p_j}}{\lambda_{p_i}} \\
-	\mathrm{Var} \tau_E & = \sum_{k=1}^N \left(\frac{\prod\limits_{j=0}^{k-1}a_{p_j}}{\lambda_{p_i}}\right)^2
+	\mathbb{E} \tau_E & = \sum_{k=1}^N \frac{\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}} \\
+	\mathrm{Var} \tau_E & = \sum_{k=1}^N \left(\frac{\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}}\right)^2
 	\end{aligned}
 	\end{equation}
 	证明请参见附录。为了综合考虑期望和方差，以及展现出用户对于长队列的不满程度，我们将衡量函数定义为
 	\begin{equation}
-	\mathrm{Score}_{\mathfrak{A}\left(\bm{\lambda}, \bm{a}, \omega\right)}(x, \alpha) =  \sum_{k=1}^N \left(\frac{\prod\limits_{j=0}^{k-1}a_{p_j}}{\lambda_{p_i}} x^k\right)^\alpha, \quad x \in [1, \infty), \alpha \in [1,2]
+	\mathrm{Score}_{\mathfrak{A}\left(\bm{\lambda}, \bm{a}, \omega\right)}(x, \alpha) =  \sum_{k=1}^N \left(\frac{\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}} x^k\right)^\alpha, \quad x \in [1, \infty), \alpha \in [1,2]
 	\end{equation}
 	
 	其中的$x \in [1, \infty)$可以理解为某种“不满值”，即随着浏览队列的加长，用户的耐心渐渐减少，每浏览队列中越靠后的一个商品用户增加的不满值越大，因而其属于$[1, \infty)$。$\alpha \in [1,2]$则是综合考虑用户所需时间的期望与方差。对于一个优秀的排行方式，其应该尽量使得用户平均等待时间较少，所积累不满较少的同时保证用户“一致地”满意。于是我们得到了这里的衡量函数$\mathrm{Score}_{\mathfrak{A}\left(\bm{\lambda}, \bm{a}, \omega\right)}(x, \alpha)$。注意到$\alpha = 1, x = 1$时衡量函数就等于等待时间的期望，而$\alpha = 2, x = 1$时衡量函数就等于等待时间的方差，而这里“不满值”$x$也可以理解成一种“心理时间”，即在较长时间的等待后，对用户而言等待时间似乎被加长，这说明了衡量函数的合理性。 \\
@@ -171,7 +171,7 @@
 	\section{带跳过的顺序选择模型——美团、饿了吗外卖}
 	\subsection{模型修正 \& 符号约定}
 	在这一节中，我们考虑对第一个模型的修正——\textbf{带跳过的顺序选择模型}。\textbf{在这个模型中，每一个用户不必详细查看排行榜中的每一个产品，可以选择跳过其中的某些条目，只选择性的详细阅读某些条目。同无跳过的顺序选择模型一样，用户也必须且仅需做出一个选择}。这样的模型是基于美团、饿了吗外卖（\ref{modelB_fig_1}）以及滴滴打车等一次性服务项目的功能简化得到的。
-	\begin{figure}[H] 
+	\begin{figure}[h!] 
 		\centering
 		\includegraphics[width = 6cm]{modelB_fig_1.jpg}
 		\caption{饿了吗外卖}\label{modelB_fig_1}
@@ -191,7 +191,7 @@
 	\end{equation}
 	在图（$\ref{modelB_fig_2}$）中展示了具体的模型。该模型可表述为$\mathfrak{B}\left(\bm{\lambda}, \bm{a}, \bm{s}, \omega\right)$。
 	\end{defn}
-	\begin{figure}[H] 
+	\begin{figure}[h!] 
 	\centering
 	\includegraphics[width = 12cm]{modelB_fig_2.pdf}
 	\caption{带跳过的顺序选择模型结构}\label{modelB_fig_2}
@@ -199,15 +199,15 @@
 	
 	\subsection{度量模型 \& 统计推断 \& 优化算法}
 	与不带跳过的选择模型相同，我们依然选择用户找到其接受产品所花的时间$\tau_E$来衡量排行榜算法的优劣，并认为时间越短就越有效。同样的，我们可以得到
-	\begin{equation}
+	\begin{equation} \label{EQ_B}
 	\begin{aligned}
-	\mathbb{E} \tau_E & = \sum_{k=1}^N \frac{(1-s_{p_j})\prod\limits_{j=0}^{k-1}a_{p_j}}{\lambda_{p_i}} \\
-	\mathrm{Var} \tau_E & = \sum_{k=1}^N (1-s_{p_j}^2)\left(\frac{\prod\limits_{j=0}^{k-1}a_{p_j}}{\lambda_{p_i}}\right)^2
+	\mathbb{E} \tau_E & = \sum_{k=1}^N \frac{(1-s_{p_j})\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}} \\
+	\mathrm{Var} \tau_E & = \sum_{k=1}^N (1-s_{p_j}^2)\left(\frac{\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}}\right)^2
 	\end{aligned}
 	\end{equation}
 	证明请参见附录。为了综合考虑期望和方差，我们用参数$\alpha$进行连续过渡；同样地，我们也使用指标$x$表示用户对于长队列的不满。综上，我们将衡量函数定义为
 	\begin{equation}
-	\mathrm{Score}_{\mathfrak{B}\left(\bm{\lambda}, \bm{a}, \bm{s}, \omega\right)} = \sum_{k=1}^N (1-s_{p_j})(1-s_{p_j}+\alpha s_{p_j})\left(\frac{\prod\limits_{j=0}^{k-1}a_{p_j}}{\lambda_{p_i}} x^k\right)^\alpha, \quad x \in [1, \infty], \alpha \in [1, 2]
+	\mathrm{Score}_{\mathfrak{B}\left(\bm{\lambda}, \bm{a}, \bm{s}, \omega\right)} = \sum_{k=1}^N (1-s_{p_j})(1-s_{p_j}+\alpha s_{p_j})\left(\frac{\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}} x^k\right)^\alpha, \quad x \in [1, \infty], \alpha \in [1, 2]
 	\end{equation}
 	相应的，参数$\bm{\lambda}, \bm{a}, \bm{s}$均是隐含的，我们需要从数据中学习出这些参数的推断值$\bm{\hat{\lambda}}, \bm{\hat{a}}, \bm{\hat{s}}$，然后再代入上式进行计算。依然使用似然函数的办法和优化策略解决这个问题。
 	\subsection{实验结果}
@@ -231,7 +231,7 @@
 	\end{equation}
 	这里和后面都会用$u_i,d_i,n_i$同时表示概率和状态的含义，在表达式中不会产生歧义。在图（$\ref{modelC_fig_2}$）中展示了具体的模型。该模型可表述为$\mathfrak{C}\left(\bm{\lambda}, \bm{t}, \bm{s}, \bm{u}, \bm{d}, \bm{n},\omega\right)$。
 	\end{defn}
-	\begin{figure}[H] 
+	\begin{figure}[h!] 
 		\centering
 		\includegraphics[width = 12cm]{modelC_fig_2.pdf}
 		\caption{带跳过的投票模型结构}\label{modelC_fig_2}
@@ -239,7 +239,7 @@
 	
 	\subsection{度量模型 \& 统计推断 \& 优化算法}
 	在这里，我们用一种新定义的\textbf{有效体验时间}$\tau_T$来衡量排行榜的好坏。具体来说$\tau_T$是\textbf{所有做出了赞成或反对的阅读时间的总和}。对于豆瓣、知乎这种阅读体验累的产品来说，用户能够对阅读的产品更长时间的保持兴趣则产品设计的越好，而在阅读完之后做出了赞成或反对的选择就表示用户对于这个条目很感兴趣，这段时间可以被看作是有效的。具体来说，我们可以计算出$\tau_T$的期望和方差为
-	\begin{equation}
+	\begin{equation} \label{EQ_C}
 	\begin{aligned}
 	\varphi_{p_j} & = s_{p_j} + n_{p_j} - s_{p_j}n_{p_j} \\
 	\mathbb{E} \tau_T & = \sum_{k=1}^N \frac{(1-\varphi_{p_j})\prod\limits_{j=0}^{k-1}(1-t_{p_j})}{\lambda_{p_i}} \\
@@ -262,6 +262,66 @@
 	\section{由此启发得到的基于优化的排行榜算法}
 	\section{总结}
 	\bibliography{bib}
+	
+	\newpage
+	\appendix
+	\section{定理的证明}
+	\begin{thm}\textbf{（无跳过的顺序选择模型）}无跳过顺序选择模型的方差和期望分别为方程（\ref{EQ_A}）中所示。
+		\begin{equation*}
+		\begin{aligned}
+		\mathbb{E} \tau_E & = \sum_{k=1}^N \frac{\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}} \\
+		\mathrm{Var} \tau_E & = \sum_{k=1}^N \left(\frac{\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}}\right)^2
+		\end{aligned}
+		\end{equation*}
+	\begin{proof}[证明]
+		取独立指数分布随机变量$\xi_i \sim \mathrm{Exp}(\lambda_i), i = 1, \cdots, N$，则由此条过程的意义易知
+		$$
+		\tau_E = \xi_1 + (1-a_{p_1})(\xi_2 + (1-a_{p_2})(\xi_3+\cdots)) = \sum_{k=1}^N \prod_{j=0}^{k-1} (1-a_{p_j}) \xi_k
+		$$
+		由独立性和指数分布的性质立即得到上面的结果。
+	\end{proof}
+	\end{thm}
+	\begin{thm}\textbf{（带跳过的顺序选择模型）}带跳过的顺序选择模型的方差和期望分别为方程（\ref{EQ_B}）中所示。
+		\begin{equation*} 
+		\begin{aligned}
+		\mathbb{E} \tau_E & = \sum_{k=1}^N \frac{(1-s_{p_j})\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}} \\
+		\mathrm{Var} \tau_E & = \sum_{k=1}^N (1-s_{p_j}^2)\left(\frac{\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}}\right)^2
+		\end{aligned}
+		\end{equation*}
+		\begin{proof}[证明]
+			将选择是否跳过和阅读的过程所花费的总时间看做互相独立的随机变量$\xi_i$，依然有
+			$$
+			\tau_E = \xi_1 + (1-a_{p_1})(\xi_2 + (1-a_{p_2})(\xi_3+\cdots)) = \sum_{k=1}^N \prod_{j=0}^{k-1} (1-a_{p_j}) \xi_k
+			$$
+			此时$\xi_i$的表示变为
+			$$
+			\xi_i = \zeta_i \tilde{\xi}_i
+			$$
+			其中
+			$\zeta_i \sim \mathrm{Bernoulli}(s_i), \tilde{\xi{i}} \sim \mathrm{Exp}(\lambda_i)$且相互独立。容易计算得到上面的结果。
+		\end{proof}
+	\end{thm}
+	\begin{thm}\textbf{（带跳过的投票模型）}带跳过的投票模型的方差和期望分别为方程（\ref{EQ_C}）中所示。
+		\begin{equation*} 
+		\begin{aligned}
+		\varphi_{p_j} & = s_{p_j} + n_{p_j} - s_{p_j}n_{p_j} \\
+		\mathbb{E} \tau_T & = \sum_{k=1}^N \frac{(1-\varphi_{p_j})\prod\limits_{j=0}^{k-1}(1-t_{p_j})}{\lambda_{p_i}} \\
+		\mathrm{Var} \tau_T & = \sum_{k=1}^N (1-\varphi_{p_j}^2)\left(\frac{\prod\limits_{j=0}^{k-1}(1-t_{p_j})}{\lambda_{p_i}}\right)^2
+		\end{aligned}
+		\end{equation*}
+		\begin{proof}[证明]
+			将选择是否跳过和阅读的过程的总有效时间看做互相独立的随机变量$\xi_i$，有
+			$$
+			\tau_E = \xi_1 + (1-t_{p_1})(\xi_2 + (1-t_{p_2})(\xi_3+\cdots)) = \sum_{k=1}^N \prod_{j=0}^{k-1} (1-t_{p_j}) \xi_k
+			$$
+			此时$\xi_i$的表示变为
+			$$
+			\xi_i = \zeta_i \eta_i \tilde{\xi}_i
+			$$
+			其中
+			$\zeta_i \sim \mathrm{Bernoulli}(s_i), \eta_i \sim \mathrm{Bernoulli}(n_i), \tilde{\xi{i}} \sim \mathrm{Exp}(\lambda_i)$且相互独立。容易计算得到上面的结果。
+		\end{proof}
+	\end{thm}
 \end{document}
 		
 		 
