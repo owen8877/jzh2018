@@ -11,24 +11,22 @@ function [post, roam, update] = model(options)
         if isfield(options, 'forcePost') && options.forcePost
             innerPostNumber = max(1, innerPostNumber);
         end
-        t = sort(rand(innerPostNumber, 1) * T) + offset;
-        ud = options.voting(t);
-        upercent = options.upVotingPercent(t);
+        time = sort(rand(innerPostNumber, 1) * T) + offset;
+        ud = options.voting(time);
+        upercent = options.upVotingPercent(time);
         u = ud .* upercent;
         d = ud - u;
-        op = options.ignoring(t);
-        opercent = options.skipPercent(t);
-        o = op .* opercent;
-        p = op - o;
-        l = 1 ./ options.readingTime(t);
+        s = options.skipping(time);
+        t = options.leaving(time);
+        l = 1 ./ options.readingTime(time);
         vu = zeros(innerPostNumber, 1); vd = zeros(innerPostNumber, 1);
-        posts = [t, vu, vd, u, d, o, p, l];
+        posts = [time, vu, vd, u, d, s, t, l];
     end
     
     function [time, hint, skip, voting, posts] = roamPhase(M, posts, ranking)
-        t = posts(:, 1); vu = posts(:, 2); vd = posts(:, 3);
+        vu = posts(:, 2); vd = posts(:, 3);
         u = posts(:, 4); d = posts(:, 5);
-        o = posts(:, 6); p = posts(:, 7); l = posts(:, 8);
+        s = posts(:, 6); t = posts(:, 7); l = posts(:, 8);
         n = size(posts, 1);
         
         time = zeros(n, M);
@@ -40,17 +38,19 @@ function [post, roam, update] = model(options)
             readThrough = false;
             for j = 1:n
                 r = ranking(j);
-                skipLeaveRandom = rand(1, 1);
-                if skipLeaveRandom < o(r)
+                isSkip = rand(1, 1);
+                if isSkip < s(r)
                     skip(j, i) = 1;
                     continue;
                 end
                 
                 skip(j, i) = 0;
-                if skipLeaveRandom > 1-p(r)
+                time(j, i) = exponential(l(j));
+                
+                isLeave = rand(1, 1);
+                if isLeave < t(r)
                     break
                 end
-                time(j, i) = exponential(l(j));
                 
                 upDownRandom = rand(1, 1);
                 if upDownRandom < u(r)

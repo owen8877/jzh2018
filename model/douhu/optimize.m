@@ -36,21 +36,20 @@ function posts = optimize(time, hint, skip, voting)
     dVoting = (umd - upd) / 2;
     
     cvx_begin
-        variables xl(n) xp(n) xo(n) xu(n) xd(n)
+        variables xl(n) xt(n) xs(n) xu(n) xd(n)
         maximize(rightCountInclude' * log(xl) - totalTime' * xl ...
-        + skipCount' * log(xo) + noskipCount' * log(1-xo-xp) ...
-        + [notReadCount; readCount(1:n-1)]' * log(xp) ...
+        + skipCount' * log(xs) + noskipCount' * (log(1-xt)+log(1-xs)) ...
+        + [notReadCount; readCount(1:n-1)]' * (log(xt)+log(1-xs)) ...
         + uVoting' * log(xu) + dVoting' * log(xd) + (skipCount + noskipCount - umd + readCount)' * log(1-xu-xd))
         subject to
             0 <= xl;
-            0 <= xp <= 1;
-            0 <= xo <= 1;
-            0 <= xo + xp <= 1;
+            0 <= xt <= 1;
+            0 <= xs <= 1;
             0 <= xu <= 1;
             0 <= xd <= 1;
             0 <= xu + xd <= 1;
     cvx_end
 
-    posts = [xu xd xo xp xl];
+    posts = [xu xd xs xt xl];
 end
 
