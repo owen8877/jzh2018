@@ -1,20 +1,23 @@
 \contentsline {section}{\numberline {1}引言}{3}{section.1}
 \contentsline {section}{\numberline {2}假设}{3}{section.2}
-\contentsline {section}{\numberline {3}无跳过的顺序选择模型——Steam探索队列}{3}{section.3}
-\contentsline {subsection}{\numberline {3.1}模型概述 \& 符号约定}{3}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}度量模型}{3}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}统计推断 \& 优化算法}{3}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}实验结果}{3}{subsection.3.4}
-\contentsline {section}{\numberline {4}带跳过的顺序选择模型——美团外卖}{3}{section.4}
-\contentsline {subsection}{\numberline {4.1}模型修正 \& 符号约定}{3}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}度量模型 \& 统计推断 \& 优化算法}{3}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}实验结果}{3}{subsection.4.3}
-\contentsline {section}{\numberline {5}带跳过的投票模型——豆瓣、知乎推荐}{3}{section.5}
-\contentsline {subsection}{\numberline {5.1}模型修正 \& 符号约定}{3}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}度量模型 \& 统计推断 \& 优化算法}{3}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}实验结果}{3}{subsection.5.3}
-\contentsline {section}{\numberline {6}实际产品评价}{3}{section.6}
-\contentsline {subsection}{\numberline {6.1}两种著名的排行榜产品}{3}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}不同情形下的实验比较}{3}{subsection.6.2}
-\contentsline {section}{\numberline {7}由此启发得到的基于优化的排行榜算法}{3}{section.7}
-\contentsline {section}{\numberline {8}总结}{3}{section.8}
+\contentsline {paragraph}{排行榜}{3}{section*.2}
+\contentsline {paragraph}{产品固有性质}{3}{section*.3}
+\contentsline {paragraph}{用户}{3}{section*.4}
+\contentsline {section}{\numberline {3}无跳过的顺序选择模型——Steam探索队列}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}模型概述 \& 符号约定}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}度量模型}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}统计推断 \& 优化算法}{5}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}实验结果}{6}{subsection.3.4}
+\contentsline {section}{\numberline {4}带跳过的顺序选择模型——美团外卖}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}模型修正 \& 符号约定}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}度量模型 \& 统计推断 \& 优化算法}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}实验结果}{6}{subsection.4.3}
+\contentsline {section}{\numberline {5}带跳过的投票模型——豆瓣、知乎推荐}{6}{section.5}
+\contentsline {subsection}{\numberline {5.1}模型修正 \& 符号约定}{6}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}度量模型 \& 统计推断 \& 优化算法}{6}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}实验结果}{6}{subsection.5.3}
+\contentsline {section}{\numberline {6}实际产品评价}{6}{section.6}
+\contentsline {subsection}{\numberline {6.1}两种著名的排行榜产品}{6}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}不同情形下的实验比较}{6}{subsection.6.2}
+\contentsline {section}{\numberline {7}由此启发得到的基于优化的排行榜算法}{6}{section.7}
+\contentsline {section}{\numberline {8}总结}{6}{section.8}
