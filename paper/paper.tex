@@ -1,11 +1,11 @@
 % !TeX spellcheck = <none>
 \documentclass[UTF8]{ctexart}
 
-\CTEXsetup[format={\Large\bfseries}]{section}  
+\CTEXsetup[format={\Large\bfseries}]{section}
 \usepackage{amsmath, amsfonts, amsthm, bm, enumerate, ulem}
 \usepackage{epstopdf, graphicx}
-\usepackage{algorithm}  
-\usepackage{algorithmicx}  
+\usepackage{algorithm}
+\usepackage{algorithmicx}
 \usepackage{algpseudocode}
 \usepackage{booktabs}
 \usepackage{mathrsfs}
@@ -15,15 +15,15 @@
 \usepackage[colorlinks, linkcolor=red, anchorcolor = blue, citecolor=green]{hyperref}
 
 \floatname{algorithm}{算法}
-\renewcommand{\algorithmicrequire}{\textbf{输入:}} 
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
 \renewcommand{\algorithmicensure}{\textbf{输出:}}
 \usepackage{listings}
 \usepackage{xcolor}
 \lstset{
-	numbers=left, 
-	numberstyle= \tiny, 
+	numbers=left,
+	numberstyle= \tiny,
 	keywordstyle= \color{ blue!70},
-	commentstyle= \color{red!50!green!50!blue!50}, 
+	commentstyle= \color{red!50!green!50!blue!50},
 	frame=shadowbox, % 阴影效果
 	rulesepcolor= \color{ red!20!green!20!blue!20} ,
 	escapeinside=``, % 英文分号中可写入中文
@@ -53,17 +53,27 @@
 	\setcounter{footnote}{1}
 	\title{基于跳过程与统计学习的普适排行榜类产品度量模型}
 	\author{程晨\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. Email address:
-			\href{mailto:moriartycc@pku.edu.cn}{moriartycc@pku.edu.cn}, ID: 1500010714}， \quad 陈子恒\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. }， \quad 郝天泽\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. }}
+			\href{mailto:moriartycc@pku.edu.cn}{moriartycc@pku.edu.cn}, ID: 1500010714}， \quad 陈子恒\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. }， \quad 郝天泽\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. Email address:\href{mailto:1500010606@pku.edu.cn}{1500010606@pku.edu.cn}, ID: 1500010606}}
 	\date{}
 	\maketitle
 	\abstract{
 		
-		\textbf{关键字：} 
+		\textbf{关键字：}
 	}
 	\newpage
 	\tableofcontents
 	\newpage
 	\section{引言}
+    随着互联网的快速发展，人们在日常生活中接触到的信息量大大增加。在为用户生活带来便利的同时，也很容易使得用户“迷失”在大量的信息中。为了使人们能够更加快速的获得他们所需要的信息，各类互联网公司使用了不同的方式来对信息进行筛选、分析和排序，以便于提升用户体验。例如如谷歌、百度等搜索引擎按照条目与关键词相关性、条目的点击行为发生次数、条目的浏览频次以及一些其他因素来对搜索结果进行排序；如美团、饿了吗等外卖类应用会对商家按照人气、服务、评价及特定用户光顾次数进行排序；如豆瓣等则会按照作品的热度、评分等进行排序。这样的排序以带来更大的用户价值为目的，针对不同公司相应的产品特点，采用不同的排序算法，对大量的信息进行了排序，生成了相关信息排行榜。
+
+    一个自然的问题是：这样的排行榜是否实现了其提升用户体验的目的，又或者在多大程度上实现了其创造用户价值的目的。或者说，如何比较不同排行榜、排行算法之间优劣。为了解决这一问题，我们先考虑可以通过技术手段获得的数据以及不同的排行算法如何应用这些数据这一问题。
+
+    通过文献调研，我们发现大多数的排行算法使用了以用户点击次数、用户浏览时间、用户关于条目的反馈、用户重复点击条目的频率为代表的用户交互特征数据或是由其进一步推断出的条目对于用户的相关程度。同时，虽然已经有许多关于不同的排行算法、以及排行算法的优化相关的工作，但是就排行算法或是利用排行算法得出的排行榜本身进行评价、打分的工作比较少有。
+
+    我们接下来的工作，就是通过可以得到的用户在不同条目上停留时间及相关决策来推断并量化出用户关于这样的排行榜的体验，这样的量化结果可以体现出这一排行榜的作用效果也可以用以比较不同排行榜产品之间的优劣，给出了一种排行榜类产品的度量模型。在对排行榜类产品进行度量时，我们将产品的实现方式视为黑箱，即无需关注其所采用的具体交互设计、技术实现、推荐算法，仅通过可获取的用户行为便可实现这一度量。
+
+    在第二部分中，我们将就模型的基本假设进行描述。第三部分中，我们将先对一种相对简单的无跳过的顺序选择模型进行论述并提出度量模型。第四部分中，进而对带跳过的顺序选择模型进行论述并提出度量。第五部分中，对另一种带跳过的投票模型进行论述并提出度量。最终在第七部分中比较两种实际的排行榜产品（Hacker News ranking algorithm以及Reddit ranking algorithms）的表现，并基于我们上面的度量在第八部分中提出一种优化的排行榜算法。最终得到一种排行榜产品表现的量化评价方式以及优化的排行榜算法。
+
 	\section{假设}
 	在开始阐述我们的模型之前，我们先描述这些模型所依赖的一些基本假设，和所建立的概率模型的空间。
 	\paragraph{排行榜} 我们所讨论的排行榜为产品状态集合$\mathcal{P}=\left\{1,2,\cdots,N \right\}$的一个排序，我们将所有排行榜产品构成的集合记为$\Omega_P$，则$\forall \omega \in \Omega_P$，我们就有一个排行榜
@@ -78,7 +88,7 @@
 		$$
 		我们说明这样的假设是合理的。尽管对于每一个不同的用户$u$，其所对应的$f_i^u$可能不同（我们认为一个确定的用户使用同一份产品所用的时间也是一个随机变量）。但考虑所有用户集合$\mathcal{U}$，以及每一个用户$u \in \mathcal{U}$被抽样的概率$p_u$，我们就能得到
 		$$
-		f_i = \sum_{u \in \mathcal{U}} f_i^u p_u 
+		f_i = \sum_{u \in \mathcal{U}} f_i^u p_u
 		$$
 		\item \textbf{用户的决策$a$的可能性}。对于排行榜类产品，用户本身可能有多种感官或心理上的体验，但这些体验并不能被开发者观察和收集到，因此并不是我们所关心的。我们关心的是用户所做的决策，而这些决策将被用来衡量排行榜类产品的好坏。具体来说，根据我们研究的不同排行榜类模型，我们将用户的决策分为
 		\begin{itemize}
@@ -104,7 +114,7 @@
 	\section{无跳过的顺序选择模型——Steam探索队列}
 	\subsection{模型概述 \& 符号约定}
 	我们首先考虑一种最为简单，受约束较多的排行榜类推荐模型——\textbf{无跳过的顺序选择模型}。\textbf{在这个模型中，每一个用户必须依照排行榜的顺序依次阅读有关每一个产品的信息，不能跳过，且必须作出一个选择（我们假设如果到了排行榜队列底端就必须选择最后一个产品）}。这样的模型是基于著名的游戏品台Steam中的探索队列(\ref{modelA_fig_1})功能简化得到的。
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = 12cm]{modelA_fig_1.png}
 		\caption{Steam探索队列}\label{modelA_fig_1}
@@ -129,7 +139,7 @@
 	\end{equation}
 	在图（$\ref{modelA_fig_2}$）中展示了具体的模型。该模型可表述为$\mathfrak{A}\left(\bm{\lambda}, \bm{a}, \omega\right)$。
 	\end{defn}
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = 12cm]{modelA_fig_2.pdf}
 		\caption{无跳过的顺序选择模型结构}\label{modelA_fig_2}
@@ -198,7 +208,7 @@
 	
 	如表 \ref{tab:steam-param} 所示，第一组参数 \textbf{Random} 是随机生成的，而第二组参数 \textbf{Decrease} 则具有良好的结构：一方面用户平均的阅读时间不发生变化，另一方面留存的概率会减少，可见总的停留时间呈正偏态的形状。用户总停留时间参加图 \ref{fig:random-decrease-time-compare-M-10000} 。
 	
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/steam/pic/random-decrease-time-compare-M-10000.eps}
 		\caption{两组参数下用户停留时间直方图}\label{fig:random-decrease-time-compare-M-10000}
@@ -208,7 +218,7 @@
 
 	图 \ref{fig:random-decrease-score-compare-M-10000} 是依据推导出的参数进行打分的结果。可见总体趋势都是 $\text{Score}$ 随着 $x, \alpha$ 的增加而增加；而第一组参数随 $\alpha$ 的变动更为剧烈，这表示当项目的差异较大时，用户与用户间的体验差异可能较大。对比左右两种参数组，左边一组中相同的不满值 $x$ 对应的分数较大，表明参数组 1 可能更容易引起用户的不满。
 	
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/steam/pic/random-decrease-score-compare-M-10000.eps}
 		\caption{两组参数下推导出的$\mathrm{Score}_{\mathfrak{A}\left(\bm{\hat{\lambda}}, \bm{\hat{a}}, \omega\right)}(x, \alpha)$}\label{fig:random-decrease-score-compare-M-10000}
@@ -218,7 +228,7 @@
 	\section{带跳过的顺序选择模型——美团、饿了吗外卖}
 	\subsection{模型修正 \& 符号约定}
 	在这一节中，我们考虑对第一个模型的修正——\textbf{带跳过的顺序选择模型}。\textbf{在这个模型中，每一个用户不必详细查看排行榜中的每一个产品，可以选择跳过其中的某些条目，只选择性的详细阅读某些条目。同无跳过的顺序选择模型一样，用户也必须且仅需做出一个选择}。这样的模型是基于美团、饿了吗外卖（\ref{modelB_fig_1}）以及滴滴打车等一次性服务项目的功能简化得到的。
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = 6cm]{modelB_fig_1.jpg}
 		\caption{饿了吗外卖}\label{modelB_fig_1}
@@ -238,7 +248,7 @@
 	\end{equation}
 	在图（$\ref{modelB_fig_2}$）中展示了具体的模型。该模型可表述为$\mathfrak{B}\left(\bm{\lambda}, \bm{a}, \bm{s}, \omega\right)$。
 	\end{defn}
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 	\centering
 	\includegraphics[width = 12cm]{modelB_fig_2.pdf}
 	\caption{带跳过的顺序选择模型结构}\label{modelB_fig_2}
@@ -293,7 +303,7 @@
 	
 	同样的，我们可以对比不同参数下用户的停留时间、每个项目的被呈现且跳过的概率和排行榜最终得分。
 	
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/meituan/pic/random-decrease-time-compare-M-100000.eps}
 		\caption{两组参数下用户停留时间直方图}\label{fig:random-decrease-time-compare-M-100000}
@@ -301,7 +311,7 @@
 
 	可见参数组 1 与 2 表现出截然不同的停留时间分布。同样的，用户跳过项目的概率也会呈现出不同的模式：在参数组 2 中我们通过随项目推进不断增大的退出概率和不断增大的跳过概率来达到某种平衡，使得越靠后的项目被呈现概率越低——同时它们被跳过的概率也就越高。
 
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/meituan/pic/random-decrease-skip-compare-M-100000.eps}
 		\caption{两组参数下用户跳过每个项目概率直方图}\label{fig:random-decrease-skip-compare-M-100000}
@@ -309,7 +319,7 @@
 
 	接下来我们需要验证我们给出的 Score 是否合理：通过比较两个参数组给出的分数随 $x, \alpha$ 变化图线 \ref{fig:random-decrease-score-compare-M-100000} 可知，随机参数受 $x, \alpha$ 变化的影响更大，这意味着如果我们设置了较小的 $x$ 或 $\alpha$，可能就无法估计到一部分焦躁客户的感受。
 	
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/meituan/pic/random-decrease-score-compare-M-100000.eps}
 		\caption{两组参数下推导出的$\mathrm{Score}_{\mathfrak{A}\left(\bm{\hat{\lambda}}, \bm{\hat{a}}, \omega\right)}(x, \alpha)$}\label{fig:random-decrease-score-compare-M-100000}
@@ -317,6 +327,7 @@
 	
 	\section{带跳过的投票模型——豆瓣、知乎推荐}
 	\subsection{模型修正 \& 符号约定}
+    本节中，我们考虑一个与前两种模型有一定差异的模型——\textbf{带跳过的投票模型}。在此模型中，用户浏览条目的目的不再是为了接受其中的一个，而是为了单纯获得阅读体验。\textbf{用户对每一个条目进行结果为赞成、反对或是不表态的投票，同时每一个用户不必详细查看排行榜中的每一个产品，可以选择跳过其中的某些条目，只选择性的详细阅读某些条目。用户不必须阅读至列表结尾，而是可以在中间时刻选择结束}。这样的模型是基于豆瓣、知乎的论坛类应用的推荐功能简化得到的。
 	\begin{defn}\textbf{（带跳过的投票模型）}该模型是一个建立在状态空间为$\mathcal{P} \cup \mathcal{\tilde{P}} \cup \mathcal{U} \cup \mathcal{D} \cup \mathcal{N} \cup \left\{T\right\}$上的跳过程。其中$T$表示结束状态，$\mathcal{\tilde{P}}$表示判断是否要跳过状态$i \in \mathcal{P}$的状态，$\mathcal{U}$表示第$i$个状态的结果为\textbf{赞成}的状态，$\mathcal{D}$表示第$i$个状态的结果为\textbf{反对}的状态，$\mathcal{N}$表示第$i$个状态的结果为\textbf{不予评价}的状态。其中状态$i$处的指数闹钟参数为$\lambda_i$，在$\tilde{i}$以及$\mathcal{U}$，$\mathcal{D}$，$\mathcal{N}$所对应状态处的指数闹钟参数为$\infty$，即瞬间跳跃；跳过状态$i$的概率为$s_i$，若不跳过则赞成的概率为$u_i$，反对的概率为$d_i$，不予评价的概率为$n_i$；且其嵌入链的转移概率为
 	\begin{equation}
 	\begin{aligned}
@@ -335,7 +346,7 @@
 	\end{equation}
 	这里和后面都会用$u_i,d_i,n_i$同时表示概率和状态的含义，在表达式中不会产生歧义。在图（$\ref{modelC_fig_2}$）中展示了具体的模型。该模型可表述为$\mathfrak{C}\left(\bm{\lambda}, \bm{t}, \bm{s}, \bm{u}, \bm{d}, \bm{n},\omega\right)$。
 	\end{defn}
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = 12cm]{modelC_fig_2.pdf}
 		\caption{带跳过的投票模型结构}\label{modelC_fig_2}
@@ -363,7 +374,39 @@
 	\section{实时计算}
 	由于排行榜具有很强的时效性和话题性，除非是一些长久建立的口碑排行榜（如旅游景点排行榜），我们在推断产品固有性质中的$a_i,r_i,s_i,t_i,u_i,d_i,n_i$时都不能把他们当做常数看待，而应该把它们都看做关于时间$t$的函数。因此，在推断某个时刻$t$的产品固有性质的值时，我们可以将所有$[t-\Delta t,t)$内的用户作为有效数据点来进行推测。$\Delta t$的选择应该适中，使得用户样本量足够大且间隔不会太长使得推断的结果不够准。
 	\section{实际产品评价}
+    本节中，我们将对两种著名的排行榜产品——\textbf{Hacker News ranking algorithm}以及\textbf{Reddit ranking algorithms}进行介绍，并利用我们上面的第五节中得到的模型对其进行评价、比较。通过对这两种排行榜产品的实验，验证上述衡量函数的合理性。
 	\subsection{两种著名的排行榜产品}
+    这两种排行榜产品均适用于上述带跳过的投票模型，通过对每一条目所得赞同数$U$与反对数$D$以及该条目的发出时间$T$进行分析，从而得出单个条目的得分$Score$。再根据$Score$从大到小排序得出排行榜。具体$Score$函数定义分别如下：
+
+    \begin{itemize}
+        \item \textbf{Hacker News ranking algorithm}
+        \begin{equation}
+        \begin{aligned}
+        P & = U - D \\
+	    Score & = (P - 1)/(T - 2)^G
+        \end{aligned}
+	    \end{equation}
+        其中$G$为重力参数，默认值为1.8。
+        \item \textbf{Reddit ranking algorithms}
+        \begin{equation}
+        \begin{aligned}
+        t_{s} & = -t \\
+        P & = U - D \\
+        Q & = \begin{cases}
+                1, \quad \mathrm{if} \ P > 0 \\
+                0, \quad \mathrm{if} \ P = 0 \\
+                -1, \quad \mathrm{if} \ P < 0
+            \end{cases} \\
+        R & = \begin{cases}
+            |P|, \quad \mathrm{if} \ |P| \geq 1 \\
+            1, \quad \mathrm{if} \ |P| < 1
+            \end{cases} \\
+        Score & =  \log_{10} R + \frac{Qt_s}{45000}
+        \end{aligned}
+	    \end{equation}
+    \end{itemize}
+    可以看出，这两种方法下均是较新的、发布时间较短的条目更容易排名靠前（这点也符合一般的实际情况）。区别只是随着时间的推移Hacker News ranking algorithm下的$Score$将会下降，而Reddit ranking algorithms下的$Score$不一定会下降，但是新条目的得分往往高于旧条目。这说明这两种方法均有一定的合理性。
+
 	\subsection{不同情形下的实验比较}
 	首先我们设定参数的生成：考虑时间 $t$ 以天为单位，那么我们可以不妨假设参数依赖于每天的时刻，那么可以做出如下的设定：
 	\begin{align}
@@ -378,7 +421,7 @@
 	
 	首先我们关注两种算法下用户停留时间与跳过条目的概率，以及排行榜评价分数随 $x, \alpha$ 的变化规律：
 	
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/douhu/pic/reddit-h-time.eps}
 		\caption{两种算法下用户停留时间直方图}\label{fig:reddit-h-time}
@@ -386,7 +429,7 @@
 	
 	相较而言， HackerNews 算法给出的停留时间分布具有更窄的尖峰，均值也较小；而跳过概率直方图在两个算法方案下表现较为一致，基本都是前面的容易跳过。
 	
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/douhu/pic/reddit-h-skip.eps}
 		\caption{两种算法下用户跳过每个项目概率直方图}\label{fig:reddit-h-skip}
@@ -394,7 +437,7 @@
 	
 	接下来我们仍需要验证我们给出的 Score 是否合理：通过比较两个算法给出的分数随 $x, \alpha$ 变化图线 \ref{fig:reddit-h-score} 可知，Reddit 算法受 $x, \alpha$ 变化的影响更大，这意味着 Reddit 的重度用户可能更加能够享受到推荐算法带来的快乐。
 	
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/douhu/pic/reddit-h-score.eps}
 		\caption{两种算法下推导出的$\mathrm{Score}_{\mathfrak{A}\left(\bm{\hat{\lambda}}, \bm{\hat{a}}, \omega\right)}(x, \alpha)$}\label{fig:reddit-h-score}
@@ -414,19 +457,19 @@
 	其中$|\omega_1 -\omega_2|$表示至少通过多少步两两交换能够将$\omega_1$变为$\omega_2$，这显然是$\Omega_P$上的一个距离。下面我们将此排行榜算法与Hacker News和Reddit排行榜算法进行比较，得到的数值实验结果如下。
 	
 	首先我们观察不同算法给出的排行榜热力图的形状：
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/douhu/pic/reddit-heatmap.eps}
 		\caption{Reddit 算法给出的排行榜演化， $x=0.5, \alpha=1.5$}\label{fig:reddit-heatmap}
 	\end{figure}
 
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/douhu/pic/hackerNews-heatmap.eps}
 		\caption{HackerNews 算法给出的排行榜演化， $x=0.5, \alpha=1.5$}\label{fig:hackerNews-heatmap}
 	\end{figure}
 	
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/douhu/pic/ours-heatmap.eps}
 		\caption{本文给出的算法给出的排行榜演化， $x=0.5, \alpha=1.5$}\label{fig:ours-heatmap}
@@ -434,13 +477,13 @@
 	可见 Reddit 的热度推荐跳跃太频繁，而 HackerNews 的推荐局限在一个非常小的范围内，受到时间影响很大。本文给出的算法能够很好地均衡以上两种因素。
 	
 	接下来我们需要观察基于本文算法进行更新的排行榜是否能带给用户更大的快乐。
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/douhu/pic/three-method-score.eps}
 		\caption{三种算法的相应得分变化， $x=0.5, \alpha=1.5$}\label{fig:three-method-score}
 	\end{figure}
 	可见我们的算法能够比 HackerNews 算法更好，略比 Reddit 算法有优势。如果我们继续观察用户平均浏览时间（见图 \ref{fig:three-method-average-time}）：
-	\begin{figure}[h!] 
+	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/douhu/pic/three-method-average-time.eps}
 		\caption{三种算法的平均浏览时间， $x=0.5, \alpha=1.5$}\label{fig:three-method-average-time}
@@ -469,7 +512,7 @@
 	\end{proof}
 	\end{thm}
 	\begin{thm}\textbf{（带跳过的顺序选择模型）}带跳过的顺序选择模型的方差和期望分别为方程（\ref{EQ_B}）中所示。
-		\begin{equation*} 
+		\begin{equation*}
 		\begin{aligned}
 		\mathbb{E} \tau_E & = \sum_{k=1}^N \frac{(1-s_{p_j})\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}} \\
 		\mathrm{Var} \tau_E & = \sum_{k=1}^N (1-s_{p_j}^2)\left(\frac{\prod\limits_{j=0}^{k-1}(1-a_{p_j})}{\lambda_{p_i}}\right)^2
@@ -489,7 +532,7 @@
 		\end{proof}
 	\end{thm}
 	\begin{thm}\textbf{（带跳过的投票模型）}带跳过的投票模型的方差和期望分别为方程（\ref{EQ_C}）中所示。
-		\begin{equation*} 
+		\begin{equation*}
 		\begin{aligned}
 		\varphi_{p_j} & = s_{p_j} + n_{p_j} - s_{p_j}n_{p_j} \\
 		\mathbb{E} \tau_T & = \sum_{k=1}^N \frac{(1-\varphi_{p_j})\prod\limits_{j=0}^{k-1}(1-t_{p_j})}{\lambda_{p_i}} \\
