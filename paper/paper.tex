@@ -180,15 +180,17 @@
 			\hline
 			&                                         & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & $\epsilon_{\text{rel}}$\\
 			\hline
-			\multirow{4}{*}{Set 1 \textbf{Random}} 	& $\lambda$       & 0.5050   & 0.4131  &  0.3867 &   0.6170  &  0.4310 & 0.7324 &   0.4094  &  0.3305 &   0.3052  &  0.3287 & \multirow{2}{*}{1.2512e-02} \\
-								   	& $\hat{\lambda}$ & 0.4953 &   0.4139  &  0.3811  &  0.6134 &   0.4356  &  0.7327 &   0.4113   & 0.3293 &   0.2944   & 0.3214  & \\
-								   	& p               &  0.7444  &  0.9558  &  0.9955  &  0.8685 &   0.9752 &0.7918 &   0.9294  &  0.8240  &  0.8206& $\slash$ & \multirow{2}{*}{3.7643e-03} \\
-									& $\hat{p}$       &  0.7397   & 0.9559  &  0.9952  &  0.8688  &  0.9764 & 0.7928   & 0.9318 &   0.8322   & 0.8215& $\slash$ & \\
+			\multirow{4}{*}{Set 1 \textbf{Random}}
+			& $\lambda$       & 0.5050   & 0.4131  &  0.3867 &   0.6170  &  0.4310 & 0.7324 &   0.4094  &  0.3305 &   0.3052  &  0.3287 & \multirow{2}{*}{1.2512e-02} \\
+		   	& $\hat{\lambda}$ & 0.4953 &   0.4139  &  0.3811  &  0.6134 &   0.4356  &  0.7327 &   0.4113   & 0.3293 &   0.2944   & 0.3214  & \\
+		   	& $a$             &  0.7444  &  0.9558  &  0.9955  &  0.8685 &   0.9752 &0.7918 &   0.9294  &  0.8240  &  0.8206& $\slash$ & \multirow{2}{*}{3.7643e-03} \\
+			& $\hat{a}$       &  0.7397   & 0.9559  &  0.9952  &  0.8688  &  0.9764 & 0.7928   & 0.9318 &   0.8322   & 0.8215& $\slash$ & \\
 			\hline
 			\multirow{4}{*}{Set 2 \textbf{Decrease}} 	& $\lambda$       & 0.5000  &  0.5000  &0.5000  &0.5000  &0.5000  &0.5000  &0.5000  &0.5000  &0.5000  &0.5000  &\multirow{2}{*}{2.0271e-01} \\
 			& $\hat{\lambda}$ &0.5013  &  0.4967&    0.5000  &  0.4882   & 0.4986 &0.4846   & 0.5331 &   0.5861   & 0.5491 &   0.8024  & \\
-			& p               &  0.9000  &  0.8000  &  0.7000  &  0.6000   & 0.5000& 0.4000  &  0.3000  &  0.2000  &  0.1000& $\slash$ & \multirow{2}{*}{4.6223e-02} \\
-			& $\hat{p}$       &  0.9022   & 0.7982  &  0.7206   & 0.6090  &  0.5044 &0.4021 &   0.3011  &  0.1762   & 0.0294&$\slash$ & \\
+			& $a$            &  0.9000  &  0.8000  &  0.7000  &  0.6000   & 0.5000& 0.4000  &  0.3000  &  0.2000  &  0.1000& $\slash$ & \multirow{2}{*}{4.6223e-02} \\
+			& $\hat{a}$       &  0.9022   & 0.7982  &  0.7206   & 0.6090  &  0.5044 &0.4021 &   0.3011  &  0.1762   & 0.0294&$\slash$ & \\
+			\hline
 		\end{tabular}
 		\caption{无跳过的顺序选择模型的参数选择}
 	\end{table}
@@ -256,6 +258,63 @@
 	\end{equation}
 	相应的，参数$\bm{\lambda}, \bm{a}, \bm{s}$均是隐含的，我们需要从数据中学习出这些参数的推断值$\bm{\hat{\lambda}}, \bm{\hat{a}}, \bm{\hat{s}}$，然后再代入上式进行计算。依然使用似然函数的办法和优化策略解决这个问题。
 	\subsection{实验结果}
+	同样的，我们生成了两组参数来生成不同的数据，参见表 \ref{tab:meituan-param} 。
+	
+	\begin{table}[h!]
+		\tiny
+		\centering
+		\label{tab:meituan-param}
+		\begin{tabular}{cc|cccccccccc|c}
+			\hline
+			&                                         & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & $\epsilon_{\text{rel}}$\\
+			\hline
+			\multirow{4}{*}{Set 1 \textbf{Random}}
+			& $\lambda$       & 0.896 & 0.489 & 0.894 & 0.595 & 0.398 & 0.956 & 0.690 & 0.476 & 0.656 & 0.417 & \multirow{2}{*}{1.9525e-01} \\
+			& $\hat{\lambda}$ & 1.026 & 0.507 & 1.077 & 0.672 & 0.483 & 0.994 & 0.741 & 0.664 & 0.915 & 0.479 & \\
+			& $a$             & 0.782 & 0.839 & 0.821 & 0.860 & 0.834 & 0.983 & 0.956 & 0.955 & 0.980 & \slash& \multirow{2}{*}{9.2899e-04} \\
+			& $\hat{a}$       & 0.782 & 0.838 & 0.823 & 0.861 & 0.835 & 0.984 & 0.955 & 0.955 & 0.979 & \slash& \\
+			& $s$             & 0.126 & 0.043 & 0.173 & 0.117 & 0.170 & 0.035 & 0.066 & 0.286 & 0.279 & 0.126 & \multirow{2}{*}{7.2698e-01} \\
+			& $\hat{s}$       & 0.158 & 0.051 & 0.202 & 0.135 & 0.199 & 0.035 & 0.068 & 0.297 & 0.285 & 0.500 & \\
+			\hline
+			\multirow{4}{*}{Set 2 \textbf{Decrease}}
+			& $\lambda$       & 0.500 & 0.500 & 0.500 & 0.500 & 0.500 & 0.500 & 0.500 & 0.500 & 0.500 & 0.500 & \multirow{2}{*}{3.3464e+00} \\
+			& $\hat{\lambda}$ & 0.500 & 0.557 & 0.631 & 0.709 & 0.835 & 1.018 & 1.242 & 1.663 & 2.630 & 5.095 & \\
+			& $a$             & 0.900 & 0.800 & 0.700 & 0.600 & 0.500 & 0.400 & 0.300 & 0.200 & 0.100 & \slash& \multirow{2}{*}{5.2407e-03} \\
+			& $\hat{a}$       & 0.899 & 0.798 & 0.701 & 0.603 & 0.496 & 0.402 & 0.300 & 0.196 & 0.095 & \slash& \\
+			& $s$             & 0.000 & 0.100 & 0.200 & 0.300 & 0.400 & 0.500 & 0.600 & 0.700 & 0.800 & 0.900 & \multirow{2}{*}{3.6854e-01} \\
+			& $\hat{s}$       & 0.000 & 0.123 & 0.264 & 0.412 & 0.573 & 0.713 & 0.832 & 0.922 & 0.977 & 0.500 & \\
+			\hline
+		\end{tabular}
+		\caption{有跳过的顺序选择模型的参数选择}
+	\end{table}
+	\normalsize
+	
+	可见，除了第二组的 $\hat{\lambda}$ 外，其余预测均较为准确（一个可能的原因是在有跳过之后用户有效阅读次数下降，导致需要更多的样本才能拟合到较为准确的数据）。
+	
+	同样的，我们可以对比不同参数下用户的停留时间、每个项目的被呈现且跳过的概率和排行榜最终得分。
+	
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/meituan/pic/random-decrease-time-compare-M-100000.eps}
+		\caption{两组参数下用户停留时间直方图}\label{fig:random-decrease-time-compare-M-100000}
+	\end{figure}
+
+	可见参数组 1 与 2 表现出截然不同的停留时间分布。同样的，用户跳过项目的概率也会呈现出不同的模式：在参数组 2 中我们通过随项目推进不断增大的退出概率和不断增大的跳过概率来达到某种平衡，使得越靠后的项目被呈现概率越低——同时它们被跳过的概率也就越高。
+
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/meituan/pic/random-decrease-skip-compare-M-100000.eps}
+		\caption{两组参数下用户跳过每个项目概率直方图}\label{fig:random-decrease-skip-compare-M-100000}
+	\end{figure}
+
+	接下来我们需要验证我们给出的 Score 是否合理：通过比较两个参数组给出的分数随 $x, \alpha$ 变化图线 \ref{fig:random-decrease-score-compare-M-100000} 可知，随机参数受 $x, \alpha$ 变化的影响更大，这意味着如果我们设置了较小的 $x$ 或 $\alpha$，可能就无法估计到一部分焦躁客户的感受。
+	
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/meituan/pic/random-decrease-score-compare-M-100000.eps}
+		\caption{两组参数下推导出的$\mathrm{Score}_{\mathfrak{A}\left(\bm{\hat{\lambda}}, \bm{\hat{a}}, \omega\right)}(x, \alpha)$}\label{fig:random-decrease-score-compare-M-100000}
+	\end{figure}
+	
 	\section{带跳过的投票模型——豆瓣、知乎推荐}
 	\subsection{模型修正 \& 符号约定}
 	\begin{defn}\textbf{（带跳过的投票模型）}该模型是一个建立在状态空间为$\mathcal{P} \cup \mathcal{\tilde{P}} \cup \mathcal{U} \cup \mathcal{D} \cup \mathcal{N} \cup \left\{T\right\}$上的跳过程。其中$T$表示结束状态，$\mathcal{\tilde{P}}$表示判断是否要跳过状态$i \in \mathcal{P}$的状态，$\mathcal{U}$表示第$i$个状态的结果为\textbf{赞成}的状态，$\mathcal{D}$表示第$i$个状态的结果为\textbf{反对}的状态，$\mathcal{N}$表示第$i$个状态的结果为\textbf{不予评价}的状态。其中状态$i$处的指数闹钟参数为$\lambda_i$，在$\tilde{i}$以及$\mathcal{U}$，$\mathcal{D}$，$\mathcal{N}$所对应状态处的指数闹钟参数为$\infty$，即瞬间跳跃；跳过状态$i$的概率为$s_i$，若不跳过则赞成的概率为$u_i$，反对的概率为$d_i$，不予评价的概率为$n_i$；且其嵌入链的转移概率为
@@ -298,12 +357,49 @@
 	相应的，参数$\bm{\lambda}, \bm{t}, \bm{s}, \bm{u}, \bm{d}, \bm{n}$均是隐含的，我们需要从数据中学习出这些参数的推断值$\bm{\hat{\lambda}}, \bm{\hat{t}}, \bm{\hat{s}}, \bm{\hat{u}}, \bm{\hat{d}}, \bm{\hat{n}}$，然后再代入上式进行计算。依然使用似然函数的办法和优化策略解决这个问题。 \\
 	
 	注意到，与上面的情况不同，我们的这个衡量函数实际上是在测量用户的\textbf{有效体验时间}，因此$\mathrm{Score}_{\mathfrak{C}\left(\bm{\hat{\lambda}}, \bm{\hat{t}}, \bm{\hat{s}}, \bm{\hat{u}}, \bm{\hat{d}}, \bm{\hat{n}},\omega\right)}$的越大我们认为排行榜越好。
-	\subsection{实验结果}
+	
+	我们将这一部分的数值实验放在下一节中进行展示与分析。
+	
 	\section{实时计算}
 	由于排行榜具有很强的时效性和话题性，除非是一些长久建立的口碑排行榜（如旅游景点排行榜），我们在推断产品固有性质中的$a_i,r_i,s_i,t_i,u_i,d_i,n_i$时都不能把他们当做常数看待，而应该把它们都看做关于时间$t$的函数。因此，在推断某个时刻$t$的产品固有性质的值时，我们可以将所有$[t-\Delta t,t)$内的用户作为有效数据点来进行推测。$\Delta t$的选择应该适中，使得用户样本量足够大且间隔不会太长使得推断的结果不够准。
 	\section{实际产品评价}
 	\subsection{两种著名的排行榜产品}
 	\subsection{不同情形下的实验比较}
+	首先我们设定参数的生成：考虑时间 $t$ 以天为单位，那么我们可以不妨假设参数依赖于每天的时刻，那么可以做出如下的设定：
+	\begin{align}
+		\lambda &= \cos(2\pi(t+0.1)) \cdot 0.4 + 1 \\
+		s &= \cos(2\pi(t+0.8)) \cdot 0.05 + 0.1 \\
+		t &= \cos(2\pi(t+0.4))\cdot 0.06 + 0.1 \\
+		u &= (\cos(2\pi(t+0.3)) \cdot 0.2 + 0.5)(\cos(2\pi(t+0.5))\cdot 0.1 + 0.5) \\
+		d &= (-\cos(2\pi(t+0.3)) \cdot 0.2 + 0.5)(\cos(2\pi(t+0.5))\cdot 0.1 + 0.5)
+	\end{align}
+	
+	在这种参数的设置下，我们考虑已经生成了 19 篇带有如上规律参数的文章，我们模拟用户的访问、评价等操作，并及时更新排行榜以影响到之后的用户。
+	
+	首先我们关注两种算法下用户停留时间与跳过条目的概率，以及排行榜评价分数随 $x, \alpha$ 的变化规律：
+	
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/douhu/pic/reddit-h-time.eps}
+		\caption{两种算法下用户停留时间直方图}\label{fig:reddit-h-time}
+	\end{figure}
+	
+	相较而言， HackerNews 算法给出的停留时间分布具有更窄的尖峰，均值也较小；而跳过概率直方图在两个算法方案下表现较为一致，基本都是前面的容易跳过。
+	
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/douhu/pic/reddit-h-skip.eps}
+		\caption{两种算法下用户跳过每个项目概率直方图}\label{fig:reddit-h-skip}
+	\end{figure}
+	
+	接下来我们仍需要验证我们给出的 Score 是否合理：通过比较两个算法给出的分数随 $x, \alpha$ 变化图线 \ref{fig:reddit-h-score} 可知，Reddit 算法受 $x, \alpha$ 变化的影响更大，这意味着 Reddit 的重度用户可能更加能够享受到推荐算法带来的快乐。
+	
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/douhu/pic/reddit-h-score.eps}
+		\caption{两种算法下推导出的$\mathrm{Score}_{\mathfrak{A}\left(\bm{\hat{\lambda}}, \bm{\hat{a}}, \omega\right)}(x, \alpha)$}\label{fig:reddit-h-score}
+	\end{figure}
+	
 	\section{由此启发得到的基于优化的排行榜算法}
 	尽管不是题目所要求的，但我们很容易注意到通过得到的费用函数，我们可以得到一个由此启发的排行榜算法，即
 	\begin{equation}
@@ -316,6 +412,41 @@
 	\omega_{n+1} =  \argmax_{|\omega - \omega_n| = 1} \mathrm{Score}_{\mathfrak{C}\left(\bm{\hat{\lambda}}, \bm{\hat{t}}, \bm{\hat{s}}, \bm{\hat{u}}, \bm{\hat{d}}, \bm{\hat{n}},\omega\right)}
 	$$
 	其中$|\omega_1 -\omega_2|$表示至少通过多少步两两交换能够将$\omega_1$变为$\omega_2$，这显然是$\Omega_P$上的一个距离。下面我们将此排行榜算法与Hacker News和Reddit排行榜算法进行比较，得到的数值实验结果如下。
+	
+	首先我们观察不同算法给出的排行榜热力图的形状：
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/douhu/pic/reddit-heatmap.eps}
+		\caption{Reddit 算法给出的排行榜演化， $x=0.5, \alpha=1.5$}\label{fig:reddit-heatmap}
+	\end{figure}
+
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/douhu/pic/hackerNews-heatmap.eps}
+		\caption{HackerNews 算法给出的排行榜演化， $x=0.5, \alpha=1.5$}\label{fig:hackerNews-heatmap}
+	\end{figure}
+	
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/douhu/pic/ours-heatmap.eps}
+		\caption{本文给出的算法给出的排行榜演化， $x=0.5, \alpha=1.5$}\label{fig:ours-heatmap}
+	\end{figure}
+	可见 Reddit 的热度推荐跳跃太频繁，而 HackerNews 的推荐局限在一个非常小的范围内，受到时间影响很大。本文给出的算法能够很好地均衡以上两种因素。
+	
+	接下来我们需要观察基于本文算法进行更新的排行榜是否能带给用户更大的快乐。
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/douhu/pic/three-method-score.eps}
+		\caption{三种算法的相应得分变化， $x=0.5, \alpha=1.5$}\label{fig:three-method-score}
+	\end{figure}
+	可见我们的算法能够比 HackerNews 算法更好，略比 Reddit 算法有优势。如果我们继续观察用户平均浏览时间（见图 \ref{fig:three-method-average-time}）：
+	\begin{figure}[h!] 
+		\centering
+		\includegraphics[width = \linewidth]{../model/douhu/pic/three-method-average-time.eps}
+		\caption{三种算法的平均浏览时间， $x=0.5, \alpha=1.5$}\label{fig:three-method-average-time}
+	\end{figure}
+	可知用户平均浏览时间缩短了，但是有效时间并不比另外两种算法要少，说明我们的推荐算法能够令用户在更短时间内看到同样多有趣的内容。
+
 	\section{总结}
 	\bibliography{bib}
 	

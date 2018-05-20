@@ -12,6 +12,7 @@ alpha = 1.5;
 postVelocity = 20;
 methods = {'ours', 'reddit', 'hackerNews'};
 % methods = {'reddit'};
+toGenerate = false;
 
 options.voting = @votingFunc;
 options.upVotingPercent = @upVotingPercentFunc;
@@ -22,7 +23,11 @@ options.forcePost = true;
 
 figure
 hold on
-initialPosts = post(postVelocity, -generateInterval, generateInterval, options);
+if toGenerate
+    initialPosts = post(postVelocity, -generateInterval, generateInterval, options);
+else
+    load data/initial.mat
+end
 fprintf('%d posts are created.\n', size(initialPosts, 1))
 options.forcePost = false;
 for methodc = methods
@@ -60,15 +65,16 @@ for methodc = methods
         fprintf('Score: %.2f.\n', score)
         scores = [scores score];
         fprintf('\n')
+        
     end
     plot(scores)
+    
+    testUserNumber = 1e4;
+    [time, hint, skip, voting, ~] = roam(testUserNumber, posts, ranking);
+
+    save(sprintf('data/user-%s.mat', method), 'time', 'hint', 'skip', 'voting', 'posts', 'ranking', 'initialPosts');
 end
 legend(methods)
-    
-testUserNumber = 1e4;
-[time, hint, skip, voting, ~] = roam(testUserNumber, posts, ranking);
-
-save('data/user.mat', 'time', 'hint', 'skip', 'voting', 'posts', 'ranking');
 
 %%
 function s = hackerNews(now, post)

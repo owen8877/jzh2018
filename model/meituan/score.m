@@ -1,12 +1,25 @@
 clc; clear
 'meituan';
 
-load data/param_h.mat
-
+figure
+s1 = subplot(1, 2, 1);
+load data/param_h_random.mat
 angerness = 1:0.01:1.2;
 balance_alpha = [1, 1.25, 1.5, 1.75, 2];
-figure
-hold on
+hold(s1, 'on')
+title('Param Set 1 ("Random")')
+for alpha = balance_alpha
+    scores = arrayfun(@(x) scoring(x, p_h, lambda_h, omega_h, alpha), angerness);
+    plot(angerness, scores)
+end
+legend(cellfun(@(f) num2str(f), mat2cell(balance_alpha', ones(numel(balance_alpha), 1)), 'UniformOutput', false))
+
+s2 = subplot(1, 2, 2);
+load data/param_h_decrease.mat
+angerness = 1:0.01:1.2;
+balance_alpha = [1, 1.25, 1.5, 1.75, 2];
+hold(s2, 'on')
+title('Param Set 2 ("Decrease")')
 for alpha = balance_alpha
     scores = arrayfun(@(x) scoring(x, p_h, lambda_h, omega_h, alpha), angerness);
     plot(angerness, scores)
