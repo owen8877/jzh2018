@@ -25,6 +25,15 @@ Zaiqing Nie, Yuanzhi Zhang, Ji-Rong Wen, and Wei-Ying Ma.
 \newblock In {\em Proceedings of the 14th international conference on World
   Wide Web}, pages 567--574. ACM, 2005.
 
+\bibitem{salihefendic2010hacker}
+Amir Salihefendic.
+\newblock How hacker news ranking algorithm works, 2010.
+
+\bibitem{salihefendic2010reddit}
+Amir Salihefendic.
+\newblock How reddit ranking algorithms work.
+\newblock {\em Hacking and Gonzo}, 23, 2010.
+
 \bibitem{zehlike2017fa}
 Meike Zehlike, Francesco Bonchi, Carlos Castillo, Sara Hajian, Mohamed Megahed,
   and Ricardo Baeza-Yates.

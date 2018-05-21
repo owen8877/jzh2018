@@ -57,8 +57,9 @@
 	\date{}
 	\maketitle
 	\abstract{
+		本文就各种不同的排行榜产品提出了一个普适的度量模型。我们利用跳过程的模型构建了用户浏览排行榜的模型，并利用统计学习的手段从用户点击次数、用户浏览时间、用户关于条目的反馈等信息中还原出模型的参数。利用这些参数，我们通过合理的手段（浏览时间，有效浏览时间）来定义对排行榜的评分。我们设计的模型可以广泛地使用在多种不同的排行榜上，包括不带跳过与带跳过的选择类排行榜模型，和投票类排行榜模型——在现实中，这样的模型涵盖了包括Steam探索队列，美团、饿了吗外卖，豆瓣、知乎推荐等大量的排行榜实例。 接下来我们将现有的Hacker News和Reddit排行榜算法用我们的衡量算法进行测量并得到实验结果。 最后，我们还创新性的通过我们得到的衡量函数的启发得到一个新型的排行榜算法，并在实验中展示了这个算法的优势。\\
 		
-		\textbf{关键字：}
+		\textbf{关键字： 跳过程，统计学习，统计推断，排行榜算法}
 	}
 	\newpage
 	\tableofcontents
@@ -379,7 +380,7 @@
     这两种排行榜产品均适用于上述带跳过的投票模型，通过对每一条目所得赞同数$U$与反对数$D$以及该条目的发出时间$T$进行分析，从而得出单个条目的得分$\mathrm{Score}$。再根据$\mathrm{Score}$从大到小排序得出排行榜。具体$\mathrm{Score}$函数定义分别如下：
 
     \begin{itemize}
-        \item \textbf{Hacker News ranking algorithm}\footnote{\url{https://medium.com/hacking-and-gonzo/how-hacker-news-ranking-algorithm-works-1d9b0cf2c08d}}
+        \item \textbf{Hacker News ranking algorithm}\cite{salihefendic2010hacker}
         \begin{equation}
         \begin{aligned}
         P & = U - D \\
@@ -387,7 +388,7 @@
         \end{aligned}
 	    \end{equation}
         其中$G$为重力参数，默认值为1.8。
-        \item \textbf{Reddit ranking algorithms}\footnote{\url{https://medium.com/hacking-and-gonzo/how-reddit-ranking-algorithms-work-ef111e33d0d9}}
+        \item \textbf{Reddit ranking algorithms}\cite{salihefendic2010reddit}
         \begin{equation}
         \begin{aligned}
         t_{s} & = -t \\
@@ -491,6 +492,9 @@
 	可知用户平均浏览时间缩短了，但是有效时间并不比另外两种算法要少，说明我们的推荐算法能够令用户在更短时间内看到同样多有趣的内容。
 
 	\section{总结}
+	在本文中，我们通过跳过程和统计推断的方式构建了三种结构逐渐复杂的统计模型$\mathfrak{A}\left(\bm{\hat{\lambda}}, \bm{\hat{a}}, \omega\right)$，$\mathfrak{B}\left(\bm{\lambda}, \bm{a}, \bm{s}, \omega\right)$以及$\mathfrak{C}\left(\bm{\lambda}, \bm{t}, \bm{s}, \bm{u}, \bm{d}, \bm{n},\omega\right)$和它们相应的评分函数。我们的评分函数具有明确的实际意义，前两个模型着眼于缩短用户寻找到想要信息的时间，最后一个模型着眼于提高用户的有效访问时间——通过从数据出发的手段避免了对于产品的先验判断，以及“优劣”程度的主观判断。 \\
+	
+	最后，我们还看到这样的评价标准还能启发我们产生一个更加有效的评分函数，通过与传统评价标准的比较，我们看出这样的评分函数具有一定程度的优势和可开发空间。对于更加复杂的模型，我们相信通过类似的手段也能构造出类似的评分函数。这样的评分函数更加贴近实际，也能对改进现有的排行榜算法的改进提供更好的参考。
 	
 	\bibliographystyle{plain}
 	\bibliography{bib}
