@@ -68,7 +68,7 @@
 
     一个自然的问题是：这样的排行榜是否实现了其提升用户体验的目的，又或者在多大程度上实现了其创造用户价值的目的。或者说，如何比较不同排行榜、排行算法之间优劣。为了解决这一问题，我们先考虑可以通过技术手段获得的数据以及不同的排行算法如何应用这些数据这一问题。
 
-    通过文献调研，我们发现大多数的排行算法使用了以用户点击次数、用户浏览时间、用户关于条目的反馈、用户重复点击条目的频率为代表的用户交互特征数据或是由其进一步推断出的条目对于用户的相关程度。同时，虽然已经有许多关于不同的排行算法、以及排行算法的优化相关的工作，但是就排行算法或是利用排行算法得出的排行榜本身进行评价、打分的工作比较少有。
+    通过文献调研\cite{agichtein2006improving}\cite{barrett2009enhanced}\cite{nematzadeh2017algorithmic}\cite{nie2005object}\cite{zehlike2017fa}，我们发现大多数的排行算法使用了以用户点击次数、用户浏览时间、用户关于条目的反馈、用户重复点击条目的频率为代表的用户交互特征数据或是由其进一步推断出的条目对于用户的相关程度。同时，虽然已经有许多关于不同的排行算法、以及排行算法的优化相关的工作，但是就排行算法或是利用排行算法得出的排行榜本身进行评价、打分的工作比较少有。
 
     我们接下来的工作，就是通过可以得到的用户在不同条目上停留时间及相关决策来推断并量化出用户关于这样的排行榜的体验，这样的量化结果可以体现出这一排行榜的作用效果也可以用以比较不同排行榜产品之间的优劣，给出了一种排行榜类产品的度量模型。在对排行榜类产品进行度量时，我们将产品的实现方式视为黑箱，即无需关注其所采用的具体交互设计、技术实现、推荐算法，仅通过可获取的用户行为便可实现这一度量。
 
@@ -376,18 +376,18 @@
 	\section{实际产品评价}
     本节中，我们将对两种著名的排行榜产品——\textbf{Hacker News ranking algorithm}以及\textbf{Reddit ranking algorithms}进行介绍，并利用我们上面的第五节中得到的模型对其进行评价、比较。通过对这两种排行榜产品的实验，验证上述衡量函数的合理性。
 	\subsection{两种著名的排行榜产品}
-    这两种排行榜产品均适用于上述带跳过的投票模型，通过对每一条目所得赞同数$U$与反对数$D$以及该条目的发出时间$T$进行分析，从而得出单个条目的得分$Score$。再根据$Score$从大到小排序得出排行榜。具体$Score$函数定义分别如下：
+    这两种排行榜产品均适用于上述带跳过的投票模型，通过对每一条目所得赞同数$U$与反对数$D$以及该条目的发出时间$T$进行分析，从而得出单个条目的得分$\mathrm{Score}$。再根据$\mathrm{Score}$从大到小排序得出排行榜。具体$\mathrm{Score}$函数定义分别如下：
 
     \begin{itemize}
-        \item \textbf{Hacker News ranking algorithm}
+        \item \textbf{Hacker News ranking algorithm}\footnote{\url{https://medium.com/hacking-and-gonzo/how-hacker-news-ranking-algorithm-works-1d9b0cf2c08d}}
         \begin{equation}
         \begin{aligned}
         P & = U - D \\
-	    Score & = (P - 1)/(T - 2)^G
+	    \mathrm{Score} & = (P - 1)/(T + 2)^G
         \end{aligned}
 	    \end{equation}
         其中$G$为重力参数，默认值为1.8。
-        \item \textbf{Reddit ranking algorithms}
+        \item \textbf{Reddit ranking algorithms}\footnote{\url{https://medium.com/hacking-and-gonzo/how-reddit-ranking-algorithms-work-ef111e33d0d9}}
         \begin{equation}
         \begin{aligned}
         t_{s} & = -t \\
@@ -401,11 +401,11 @@
             |P|, \quad \mathrm{if} \ |P| \geq 1 \\
             1, \quad \mathrm{if} \ |P| < 1
             \end{cases} \\
-        Score & =  \log_{10} R + \frac{Qt_s}{45000}
+        \mathrm{Score} & =  \log_{10} R + \frac{Qt_s}{45000}
         \end{aligned}
 	    \end{equation}
     \end{itemize}
-    可以看出，这两种方法下均是较新的、发布时间较短的条目更容易排名靠前（这点也符合一般的实际情况）。区别只是随着时间的推移Hacker News ranking algorithm下的$Score$将会下降，而Reddit ranking algorithms下的$Score$不一定会下降，但是新条目的得分往往高于旧条目。这说明这两种方法均有一定的合理性。
+    可以看出，这两种方法下均是较新的、发布时间较短的条目更容易排名靠前（这点也符合一般的实际情况）。区别只是随着时间的推移Hacker News ranking algorithm下的$\mathrm{Score}$将会下降，而Reddit ranking algorithms下的$\mathrm{Score}$不一定会下降，但是新条目的得分往往高于旧条目。这说明这两种方法均有一定的合理性。
 
 	\subsection{不同情形下的实验比较}
 	首先我们设定参数的生成：考虑时间 $t$ 以天为单位，那么我们可以不妨假设参数依赖于每天的时刻，那么可以做出如下的设定：
@@ -440,7 +440,7 @@
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/douhu/pic/reddit-h-score.eps}
-		\caption{两种算法下推导出的$\mathrm{Score}_{\mathfrak{A}\left(\bm{\hat{\lambda}}, \bm{\hat{a}}, \omega\right)}(x, \alpha)$}\label{fig:reddit-h-score}
+		\caption{两种算法下推导出的$\mathrm{Score}_{\mathfrak{C}\left(\bm{\hat{\lambda}}, \bm{\hat{t}}, \bm{\hat{s}}, \bm{\hat{u}}, \bm{\hat{d}}, \bm{\hat{n}},\omega\right)}$}\label{fig:reddit-h-score}
 	\end{figure}
 	
 	\section{由此启发得到的基于优化的排行榜算法}
@@ -491,6 +491,8 @@
 	可知用户平均浏览时间缩短了，但是有效时间并不比另外两种算法要少，说明我们的推荐算法能够令用户在更短时间内看到同样多有趣的内容。
 
 	\section{总结}
+	
+	\bibliographystyle{plain}
 	\bibliography{bib}
 	
 	\newpage
@@ -504,7 +506,7 @@
 		\end{aligned}
 		\end{equation*}
 	\begin{proof}[证明]
-		取独立指数分布随机变量$\xi_i \sim \mathrm{Exp}(\lambda_i), i = 1, \cdots, N$，则由此条过程的意义易知
+		取独立指数分布随机变量$\xi_i \sim \mathrm{Exp}(\lambda_i), i = 1, \cdots, N$，则由此跳过程的意义易知
 		$$
 		\tau_E = \xi_1 + (1-a_{p_1})(\xi_2 + (1-a_{p_2})(\xi_3+\cdots)) = \sum_{k=1}^N \prod_{j=0}^{k-1} (1-a_{p_j}) \xi_k
 		$$

@@ -12,11 +12,10 @@
 \BOOKMARK [1][-]{section.5}{带跳过的投票模型——豆瓣、知乎推荐}{}% 12
 \BOOKMARK [2][-]{subsection.5.1}{模型修正 & 符号约定}{section.5}% 13
 \BOOKMARK [2][-]{subsection.5.2}{度量模型 & 统计推断 & 优化算法}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.3}{实验结果}{section.5}% 15
-\BOOKMARK [1][-]{section.6}{实时计算}{}% 16
-\BOOKMARK [1][-]{section.7}{实际产品评价}{}% 17
-\BOOKMARK [2][-]{subsection.7.1}{两种著名的排行榜产品}{section.7}% 18
-\BOOKMARK [2][-]{subsection.7.2}{不同情形下的实验比较}{section.7}% 19
-\BOOKMARK [1][-]{section.8}{由此启发得到的基于优化的排行榜算法}{}% 20
-\BOOKMARK [1][-]{section.9}{总结}{}% 21
-\BOOKMARK [1][-]{appendix.A}{定理的证明}{}% 22
+\BOOKMARK [1][-]{section.6}{实时计算}{}% 15
+\BOOKMARK [1][-]{section.7}{实际产品评价}{}% 16
+\BOOKMARK [2][-]{subsection.7.1}{两种著名的排行榜产品}{section.7}% 17
+\BOOKMARK [2][-]{subsection.7.2}{不同情形下的实验比较}{section.7}% 18
+\BOOKMARK [1][-]{section.8}{由此启发得到的基于优化的排行榜算法}{}% 19
+\BOOKMARK [1][-]{section.9}{总结}{}% 20
+\BOOKMARK [1][-]{appendix.A}{定理的证明}{}% 21

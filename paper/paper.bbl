@@ -1,0 +1,35 @@
+\begin{thebibliography}{1}
+
+\bibitem{agichtein2006improving}
+Eugene Agichtein, Eric Brill, and Susan Dumais.
+\newblock Improving web search ranking by incorporating user behavior
+  information.
+\newblock In {\em Proceedings of the 29th annual international ACM SIGIR
+  conference on Research and development in information retrieval}, pages
+  19--26. ACM, 2006.
+
+\bibitem{barrett2009enhanced}
+Michael~E Barrett and Alan Levin.
+\newblock Enhanced popularity ranking, July~21 2009.
+\newblock US Patent 7,565,367.
+
+\bibitem{nematzadeh2017algorithmic}
+Azadeh Nematzadeh, Giovanni~Luca Ciampaglia, Filippo Menczer, and Alessandro
+  Flammini.
+\newblock How algorithmic popularity bias hinders or promotes quality.
+\newblock {\em arXiv preprint arXiv:1707.00574}, 2017.
+
+\bibitem{nie2005object}
+Zaiqing Nie, Yuanzhi Zhang, Ji-Rong Wen, and Wei-Ying Ma.
+\newblock Object-level ranking: bringing order to web objects.
+\newblock In {\em Proceedings of the 14th international conference on World
+  Wide Web}, pages 567--574. ACM, 2005.
+
+\bibitem{zehlike2017fa}
+Meike Zehlike, Francesco Bonchi, Carlos Castillo, Sara Hajian, Mohamed Megahed,
+  and Ricardo Baeza-Yates.
+\newblock Fa* ir: A fair top-k ranking algorithm.
+\newblock In {\em Proceedings of the 2017 ACM on Conference on Information and
+  Knowledge Management}, pages 1569--1578. ACM, 2017.
+
+\end{thebibliography}
