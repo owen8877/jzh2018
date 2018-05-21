@@ -53,7 +53,8 @@
 	\setcounter{footnote}{1}
 	\title{基于跳过程与统计学习的普适排行榜类产品度量模型}
 	\author{程晨\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. Email address:
-			\href{mailto:moriartycc@pku.edu.cn}{moriartycc@pku.edu.cn}, ID: 1500010714}， \quad 陈子恒\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. }， \quad 郝天泽\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. Email address:\href{mailto:1500010606@pku.edu.cn}{1500010606@pku.edu.cn}, ID: 1500010606}}
+			\href{mailto:moriartycc@pku.edu.cn}{moriartycc@pku.edu.cn}, ID: 1500010714}， \quad 陈子恒\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China.  Email address:
+			\href{mailto:xdroid@pku.edu.cn}{xdroid@pku.edu.cn}, ID: 1500010632}， \quad 郝天泽\footnote{School of Mathematical Sciences, Peking University, Beijing 100871, China. Email address:\href{mailto:1500010606@pku.edu.cn}{1500010606@pku.edu.cn}, ID: 1500010606}}
 	\date{}
 	\maketitle
 	\abstract{
@@ -113,7 +114,7 @@
 	
 	\section{无跳过的顺序选择模型——Steam探索队列}
 	\subsection{模型概述 \& 符号约定}
-	我们首先考虑一种最为简单，受约束较多的排行榜类推荐模型——\textbf{无跳过的顺序选择模型}。\textbf{在这个模型中，每一个用户必须依照排行榜的顺序依次阅读有关每一个产品的信息，不能跳过，且必须作出一个选择（我们假设如果到了排行榜队列底端就必须选择最后一个产品）}。这样的模型是基于著名的游戏品台Steam中的探索队列(\ref{modelA_fig_1})功能简化得到的。
+	我们首先考虑一种最为简单，受约束较多的排行榜类推荐模型——\textbf{无跳过的顺序选择模型}。\textbf{在这个模型中，每一个用户必须依照排行榜的顺序依次阅读有关每一个产品的信息，不能跳过，且必须作出一个选择（我们假设如果到了排行榜队列底端就必须选择最后一个产品）}。这样的模型是基于著名的游戏平台Steam中的探索队列(\ref{modelA_fig_1})功能简化得到的。
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = 12cm]{modelA_fig_1.png}
@@ -204,7 +205,6 @@
 		\end{tabular}
 		\caption{无跳过的顺序选择模型的参数选择}
 	\end{table}
-	\normalsize
 	
 	如表 \ref{tab:steam-param} 所示，第一组参数 \textbf{Random} 是随机生成的，而第二组参数 \textbf{Decrease} 则具有良好的结构：一方面用户平均的阅读时间不发生变化，另一方面留存的概率会减少，可见总的停留时间呈正偏态的形状。用户总停留时间参加图 \ref{fig:random-decrease-time-compare-M-10000} 。
 	
@@ -297,7 +297,6 @@
 		\end{tabular}
 		\caption{有跳过的顺序选择模型的参数选择}
 	\end{table}
-	\normalsize
 	
 	可见，除了第二组的 $\hat{\lambda}$ 外，其余预测均较为准确（一个可能的原因是在有跳过之后用户有效阅读次数下降，导致需要更多的样本才能拟合到较为准确的数据）。
 	
@@ -353,7 +352,7 @@
 	\end{figure}
 	
 	\subsection{度量模型 \& 统计推断 \& 优化算法}
-	在这里，我们用一种新定义的\textbf{有效体验时间}$\tau_T$来衡量排行榜的好坏。具体来说$\tau_T$是\textbf{所有做出了赞成或反对的阅读时间的总和}。对于豆瓣、知乎这种阅读体验累的产品来说，用户能够对阅读的产品更长时间的保持兴趣则产品设计的越好，而在阅读完之后做出了赞成或反对的选择就表示用户对于这个条目很感兴趣，这段时间可以被看作是有效的。具体来说，我们可以计算出$\tau_T$的期望和方差为
+	在这里，我们用一种新定义的\textbf{有效体验时间}$\tau_T$来衡量排行榜的好坏。具体来说$\tau_T$是\textbf{所有做出了赞成或反对的阅读时间的总和}。对于豆瓣、知乎这种阅读体验类的产品来说，用户能够对阅读的产品更长时间的保持兴趣则产品设计的越好，而在阅读完之后做出了赞成或反对的选择就表示用户对于这个条目很感兴趣，这段时间可以被看作是有效的。具体来说，我们可以计算出$\tau_T$的期望和方差为
 	\begin{equation} \label{EQ_C}
 	\begin{aligned}
 	\varphi_{p_j} & = s_{p_j} + n_{p_j} - s_{p_j}n_{p_j} \\
@@ -456,7 +455,7 @@
 	$$
 	其中$|\omega_1 -\omega_2|$表示至少通过多少步两两交换能够将$\omega_1$变为$\omega_2$，这显然是$\Omega_P$上的一个距离。下面我们将此排行榜算法与Hacker News和Reddit排行榜算法进行比较，得到的数值实验结果如下。
 	
-	首先我们观察不同算法给出的排行榜热力图的形状：
+	首先我们观察不同算法给出的排行榜热力图的形状，这里 $n=19$ ，方格越亮表明该条目在彼时刻越热门：
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width = \linewidth]{../model/douhu/pic/reddit-heatmap.eps}
